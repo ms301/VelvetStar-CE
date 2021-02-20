@@ -1,0 +1,11 @@
+{
+	"name": "VelvetStar-CE",
+	"description": "alternative client for Galaxy Chat",
+	"version": "0.0.1",
+	"homepage": "",
+	"mainsrc": "./sources/",
+	"projects": [],
+	"dependencies": {
+		"https://github.com/ms301/viewnavigator": "^1.0.2"
+	}
+}

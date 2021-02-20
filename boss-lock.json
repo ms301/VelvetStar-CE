@@ -1,0 +1,14 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2021-02-20T19:54:24.1869081+02:00",
+	"installedModules": {
+		"https://github.com/ms301/viewnavigator": {
+			"name": "viewnavigator",
+			"version": "1.0.2",
+			"hash": "e717674d00195a89ae80cdb1ba426706",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}
