@@ -1,0 +1,32 @@
+object ViewHost: TViewHost
+  Left = 0
+  Top = 0
+  Caption = 'VelvetStar - CE'
+  ClientHeight = 487
+  ClientWidth = 673
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object lytContent: TLayout
+    Align = Client
+    Size.Width = 623.000000000000000000
+    Size.Height = 487.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+  end
+  object Layout2: TLayout
+    Align = Left
+    Size.Width = 50.000000000000000000
+    Size.Height = 487.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+  end
+  object StyleBook1: TStyleBook
+    Styles = <>
+    Left = 320
+    Top = 232
+  end
+end
