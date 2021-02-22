@@ -8,6 +8,9 @@ uses
   FMX.Forms,
   FMX.Graphics,
   FMX.Dialogs,
+  FMX.Layouts,
+  FMX.Controls.Presentation,
+  FMX.StdCtrls,
 
   System.SysUtils,
   System.Types,
@@ -15,19 +18,25 @@ uses
   System.Classes,
   System.Variants,
 
-  ViewNavigator, FMX.Layouts;
+  ViewNavigator, FMX.Edit;
 
 type
   TViewHost = class(TForm)
     lytContent: TLayout;
     Layout2: TLayout;
-    StyleBook1: TStyleBook;
+    FluentStyleBook: TStyleBook;
+    StyleBook2: TStyleBook;
+    ToolBar1: TToolBar;
+    btnViewClientAuth: TSpeedButton;
+    SpeedButton2: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure DoButtonNavigateClicked(Sender: TObject);
   private
     { Private declarations }
     FViewManager: TViewNavigator;
     procedure RegisterViews(AViews: TArray<TvnControlClass>);
+
   public
     { Public declarations }
   end;
@@ -38,15 +47,30 @@ var
 implementation
 
 uses
+  FGX.Asserts,
   View.Client.Auth;
 {$R *.fmx}
 
+procedure TViewHost.DoButtonNavigateClicked(Sender: TObject);
+var
+  lViewName: string;
+begin
+  TfgAssert.IsClass(Sender, TSpeedButton);
+
+  lViewName := string((Sender as TSpeedButton).Name).Substring(3);
+
+  FViewManager.Navigate(lViewName);
+end;
+
 procedure TViewHost.FormCreate(Sender: TObject);
 begin
+
   FViewManager := TViewNavigator.Create;
   FViewManager.Parent := lytContent;
   RegisterViews([TViewClientAuth]);
-  FViewManager.Navigate('ViewClientAuth');
+
+  DoButtonNavigateClicked(btnViewClientAuth);
+  btnViewClientAuth.SetFocus;
 end;
 
 procedure TViewHost.FormDestroy(Sender: TObject);

@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EAE0FE8A-8FDE-4857-B7E7-7D03AF80DBCC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FluentUI\FluentUI.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Sources\Components\GalaxyComponents.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VelvetStarCE.dproj">
+            <Dependencies>FluentUI\FluentUI.dproj;Sources\Components\GalaxyComponents.dproj</Dependencies>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FluentUI">
+        <MSBuild Projects="FluentUI\FluentUI.dproj"/>
+    </Target>
+    <Target Name="FluentUI:Clean">
+        <MSBuild Projects="FluentUI\FluentUI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FluentUI:Make">
+        <MSBuild Projects="FluentUI\FluentUI.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GalaxyComponents">
+        <MSBuild Projects="Sources\Components\GalaxyComponents.dproj"/>
+    </Target>
+    <Target Name="GalaxyComponents:Clean">
+        <MSBuild Projects="Sources\Components\GalaxyComponents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GalaxyComponents:Make">
+        <MSBuild Projects="Sources\Components\GalaxyComponents.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VelvetStarCE" DependsOnTargets="FluentUI;GalaxyComponents">
+        <MSBuild Projects="VelvetStarCE.dproj"/>
+    </Target>
+    <Target Name="VelvetStarCE:Clean" DependsOnTargets="FluentUI:Clean;GalaxyComponents:Clean">
+        <MSBuild Projects="VelvetStarCE.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VelvetStarCE:Make" DependsOnTargets="FluentUI:Make;GalaxyComponents:Make">
+        <MSBuild Projects="VelvetStarCE.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FluentUI;GalaxyComponents;VelvetStarCE"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FluentUI:Clean;GalaxyComponents:Clean;VelvetStarCE:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FluentUI:Make;GalaxyComponents:Make;VelvetStarCE:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
