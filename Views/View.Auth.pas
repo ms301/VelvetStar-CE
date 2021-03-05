@@ -1,4 +1,4 @@
-unit View.Client.Auth;
+unit View.Auth;
 
 interface
 
@@ -41,14 +41,12 @@ type
     Button3: TButton;
     hsbAccounts: THorzScrollBox;
     Label1: TLabel;
-    Label2: TLabel;
-    Edit1: TEdit;
     procedure Button3Click(Sender: TObject);
 
   private
     { Private declarations }
     FAccounts: TgAccountViewerCustom;
-
+    FRecoverEdt: TEdit;
     procedure SetupAccountsViewer(AAccounts: TgAccountViewerCustom);
 
   public
@@ -68,7 +66,7 @@ begin
   inherited Create(AOwner);
   FAccounts := TgAccountViewerCustom.Create(nil);
   SetupAccountsViewer(FAccounts);
-
+  FRecoverEdt := TEdit.Create(Self);
 end;
 
 destructor TViewClientAuth.Destroy;
@@ -87,11 +85,11 @@ begin
   lRecoverDialog.PrimatyButtonText := 'Готово';
   lRecoverDialog.DefaultButtonText := 'Отмена';
   lRecoverDialog.Height := 200;
-  lRecoverDialog.SetContent(Edit1);
+  lRecoverDialog.SetContent(FRecoverEdt);
   lRecoverDialog.Show(
     procedure(AText: string)
     begin
-      Label2.Text := AText + (lRecoverDialog.Content as TEdit).Text;
+
     end);
 end;
 

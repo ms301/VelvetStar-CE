@@ -100,7 +100,7 @@
             <Form>ViewHost</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="Views\View.Client.Auth.pas">
+        <DCCReference Include="Views\View.Auth.pas">
             <Form>ViewClientAuth</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
@@ -110,6 +110,21 @@
         <DCCReference Include="Sources\Model\Galaxy.Model.Account.pas"/>
         <DCCReference Include="FluentUI\FluentUI.Dialog.pas"/>
         <DCCReference Include="FluentUI\FluentUI.Core.TextTools.pas"/>
+        <DCCReference Include="Views\View.Modules.pas">
+            <Form>ViewModules</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Views\View.Modules.UserRegistrator.pas">
+            <Form>ViewModulesUserRegistrator</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Views\View.About.pas">
+            <Form>ViewAbout</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

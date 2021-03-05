@@ -1,0 +1,6 @@
+object ViewModulesUserRegistrator: TViewModulesUserRegistrator
+  Align = Client
+  Size.Width = 769.000000000000000000
+  Size.Height = 497.000000000000000000
+  Size.PlatformDefault = False
+end

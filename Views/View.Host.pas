@@ -18,7 +18,8 @@ uses
   System.Classes,
   System.Variants,
 
-  ViewNavigator, FMX.Edit;
+  ViewNavigator,
+  FMX.Edit;
 
 type
   TViewHost = class(TForm)
@@ -28,7 +29,9 @@ type
     StyleBook2: TStyleBook;
     ToolBar1: TToolBar;
     btnViewClientAuth: TSpeedButton;
-    SpeedButton2: TSpeedButton;
+    btnViewClientChat: TSpeedButton;
+    btnViewModules: TSpeedButton;
+    btnViewAbout: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure DoButtonNavigateClicked(Sender: TObject);
@@ -47,18 +50,16 @@ var
 implementation
 
 uses
-  FGX.Asserts,
-  View.Client.Auth;
+  View.Auth,
+  View.Modules,
+  View.About;
 {$R *.fmx}
 
 procedure TViewHost.DoButtonNavigateClicked(Sender: TObject);
 var
   lViewName: string;
 begin
-  TfgAssert.IsClass(Sender, TSpeedButton);
-
   lViewName := string((Sender as TSpeedButton).Name).Substring(3);
-
   FViewManager.Navigate(lViewName);
 end;
 
@@ -67,7 +68,11 @@ begin
 
   FViewManager := TViewNavigator.Create;
   FViewManager.Parent := lytContent;
-  RegisterViews([TViewClientAuth]);
+  RegisterViews([ //
+    TViewClientAuth //
+    , TViewModules //
+    , TViewAbout //
+    ]);
 
   DoButtonNavigateClicked(btnViewClientAuth);
   btnViewClientAuth.SetFocus;
