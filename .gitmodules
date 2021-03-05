@@ -1,3 +1,6 @@
 [submodule "FluentUI"]
 	path = FluentUI
 	url = https://github.com/ms301/FluentUI.git
+[submodule "GalaxySunApi"]
+	path = GalaxySunApi
+	url = https://github.com/ms301/GalaxySunApi.git
