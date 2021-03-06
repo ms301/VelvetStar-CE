@@ -1,18 +1,22 @@
 object ViewModules: TViewModules
+  Align = Client
   Size.Width = 655.000000000000000000
   Size.Height = 502.000000000000000000
   Size.PlatformDefault = False
   object GroupBox1: TGroupBox
     Align = Left
+    StyledSettings = [Family, Style, FontColor, Other]
     Padding.Left = 2.000000000000000000
     Padding.Top = 30.000000000000000000
     Padding.Right = 2.000000000000000000
     Padding.Bottom = 2.000000000000000000
+    Margins.Right = 32.000000000000000000
     Size.Width = 177.000000000000000000
     Size.Height = 502.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'groupboxstyle'
     Text = #1052#1086#1076#1091#1083#1080
+    TextSettings.Font.Size = 18.000000000000000000
     TabOrder = 0
     object ListBox1: TListBox
       Align = Client
@@ -21,6 +25,7 @@ object ViewModules: TViewModules
       Size.PlatformDefault = False
       TabOrder = 1
       DisableFocusEffect = True
+      ItemHeight = 20.000000000000000000
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
@@ -28,6 +33,11 @@ object ViewModules: TViewModules
       Viewport.Width = 169.000000000000000000
       Viewport.Height = 466.000000000000000000
       object lbViewModulesUserRegistrator: TListBoxItem
+        TextSettings.Font.Size = 14.000000000000000000
+        StyledSettings = [Family, Style, FontColor, Other]
+        Size.Width = 169.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
         StyleLookup = 'listboxitemstyle'
         TabOrder = 0
         Text = #1056#1077#1075#1080#1089#1090#1088#1072#1090#1086#1088' '#1087#1077#1088#1089#1086#1085#1072#1078#1077#1081
@@ -36,7 +46,11 @@ object ViewModules: TViewModules
   end
   object lytContent: TLayout
     Align = Client
-    Size.Width = 478.000000000000000000
+    Padding.Left = 16.000000000000000000
+    Padding.Top = 28.000000000000000000
+    Padding.Right = 16.000000000000000000
+    Padding.Bottom = 50.000000000000000000
+    Size.Width = 446.000000000000000000
     Size.Height = 502.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1

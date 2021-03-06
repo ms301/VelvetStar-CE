@@ -19,7 +19,7 @@ uses
   System.Variants,
 
   ViewNavigator,
-  FMX.Edit;
+  FMX.Edit, FGX.LinkedLabel, FMX.ListBox;
 
 type
   TViewHost = class(TForm)
@@ -32,6 +32,7 @@ type
     btnViewClientChat: TSpeedButton;
     btnViewModules: TSpeedButton;
     btnViewAbout: TSpeedButton;
+    fgLinkedLabel1: TfgLinkedLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure DoButtonNavigateClicked(Sender: TObject);

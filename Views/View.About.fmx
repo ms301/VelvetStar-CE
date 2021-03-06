@@ -16,10 +16,12 @@ object ViewAbout: TViewAbout
   end
   object Label2: TLabel
     Align = Top
+    StyledSettings = [Family, Style, FontColor]
     Position.Y = 27.000000000000000000
     Size.Width = 595.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
     Text = 'https://t.me/devgalaxy'
     TabOrder = 1
   end

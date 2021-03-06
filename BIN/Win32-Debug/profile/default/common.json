@@ -1,0 +1,239 @@
+{
+    "version": 9.4,
+    "kbv": 296,
+    "socket": {
+        "port": 6672,
+        "uri": "cs.mobstudio.ru",
+        "autoSignInUser": true,
+        "userWhoisAddonId": 13,
+        "channelWhoisAddonId": 17,
+        "flyToAnotherChannelAddonId": 14,
+        "planetSelectedUserAddonId": 13,
+        "mailAddonId": 232,
+        "friendsAddonId": 233,
+        "balanceAddonId": 11,
+        "mailWriteAddonId": 19,
+        "openingTimeMinDelay": 200,
+        "signingInByPasswordMinDelay": 4000,
+        "joinMinDelay": 4000,
+        "minAppBluredFocusedDelaySend": 250
+    },
+    "hlinks": [
+        [
+            "#huya#",
+            "http://galaxy.mobstudio.ru/services/?"
+        ]
+    ],
+    "dispatcher": {
+        "logLimit": 500,
+        "console": {
+            "setStoreState": false,
+            "dispatch": true,
+            "dispatchNotify": true
+        }
+    },
+    "appearance": {
+        "app": {
+            "allowColumnView": true
+        },
+        "drawer": {
+            "width": 280,
+            "addonIconUrl": "http://galaxy.mobstudio.ru/server_pics/adn/1/s%1/%2.png"
+        },
+        "appContent": {
+            "desktopWidth": 700
+        },
+        "channel": {
+            "combineMessagesTimeDifference": 60000,
+            "feedLimit": 200,
+            "newMessageMaxLength": 200,
+            "newMessageMinLength": 1,
+            "scrollBottomToStopAutoScroll": 50
+        },
+        "appBar": {
+            "eventsRotatorDelay": 1000,
+            "svgIcons": [
+                10009,
+                10010,
+                10094,
+                10194
+            ]
+        },
+        "channelFlies": {
+            "mobileFliesLimit": 1,
+            "desktopFliesLimit": 4
+        },
+        "emotion": {
+            "textMaxLength": 40
+        },
+        "planet": {
+            "jumpTime": 600,
+            "jumpMaxY": 40,
+            "moveMinTimeDelay": 3000,
+            "imagesUrl": "http://galaxy.mobstudio.ru/server_pics/%1",
+            "starsUrl": "/web/assets/stars.png",
+            "lightningCloudsUrl": "/web/assets/dark_cloud@2x.png",
+            "fogBackUrl": "/web/assets/fog_back@2x.png",
+            "fogFrontUrl": "/web/assets/fog_front@2x.png",
+            "snowUrls": [
+                "/web/assets/snow_flake_1.png",
+                "/web/assets/snow_flake_2.png",
+                "/web/assets/snow_flake_3.png"
+            ],
+            "height": 172,
+            "mobileFPS": 24,
+            "defaultCrownUrl": "/web/assets/0_.png",
+            "teleport": {
+                "width": 120,
+                "borderColor": "#6262ff",
+                "centerColor": "#ffffff",
+                "linesColor": "#000000",
+                "kickBorderColor": "#ff0000",
+                "speed": 120,
+                "imageUrl": "http://galaxy.mobstudio.ru/server_pics/%1.png"
+            },
+            "dev": {
+                "showBoundingBoxes": false
+            },
+            "operatorUrl": "/web/assets/default_star.png",
+            "userShitSuit": {
+                "minRating": -100,
+                "imageUrl": "/web/assets/shit.png"
+            }
+        },
+        "planetMiniInfo": {
+            "leftRightItemShowPageDelay": 300,
+            "userUrl": "https://galaxy.mobstudio.ru/services/?a=whois&usercur=%1"
+        },
+        "channelMessage": {
+            "serverAvatarUrl": "/web/assets/server_100.png",
+            "topicAvatarUrl": "/web/assets/topic_100.png"
+        },
+        "snackbars": {
+            "showTime": 5000
+        },
+        "browser": {
+            "width": 700
+        },
+        "dialog": {
+            "width": 320
+        },
+        "channelAstral": {
+            "imageUrl": "/web/assets/rocket@2x.png"
+        },
+        "start": {
+            "regUrl": "http://galaxy.mobstudio.ru/services/?a=user_reg",
+            "forgotRecoveryCodeUrl": "http://galaxy.mobstudio.ru/services/?a=mainmenu_help",
+            "copyrightYears": "2015-2020",
+            "companyUrl": "https://www.mobstudio.ru/",
+            "companyName": "Mobstudio",
+            "licenseAgreementUrl": "https://in-galaxy.com/license?lng=%1",
+            "privacyPolicyUrl": "https://in-galaxy.com/privacy?lng=%1",
+            "flag": {
+                "imageUrl": "/web/assets/flag_%1@2x.png",
+                "inMenuImageUrl": "/web/assets/flag_%1_square@2x.png"
+            },
+            "maxUsers": 3
+        },
+        "cookiesTip": {
+            "url": "https://in-galaxy.com/privacy"
+        },
+        "themes": {
+            "imageUrl": "/web/assets/themes/%1/preview.png"
+        }
+    },
+    "http": {
+        "userAvatarsUrl": "http://galaxy.mobstudio.ru/services/?a=user_pics_ajax&users_ids=%1",
+        "objectViewsDataUrl": "http://galaxy.mobstudio.ru/services/obj_scripts/get_obj_view.php?id=%1&v=3",
+        "userAdditionalViewDataUrl": "http://galaxy.mobstudio.ru/services/obj_scripts/get_obj_view.php?id=%1&v=3",
+        "clientApiUrl": "http://galaxy.mobstudio.ru/clients/api/v1/%1",
+        "balance": {
+            "requestUrl": "http://galaxy.mobstudio.ru/services/?a=pay_get_balance",
+            "autoRequestDelay": 10000,
+            "minRequestDelay": 1000
+        }
+    },
+    "planetItemRenderer": {
+        "imagesUrl": "http://galaxy.mobstudio.ru/server_pics/%1",
+        "smilesUrl": "/web/assets/smiles@2x.png",
+        "typingUrl": "/web/assets/typing_bubble.png",
+        "typingAnimatedUrl": "/web/assets/typing_bubble_%1@2x.png",
+        "typingNewMessageAutoEndDelay": 10000,
+        "viewScriptTotalTimeLagToRefreshPlanet": 10000
+    },
+    "channel": {
+        "joinDelay": 3000,
+        "flyDelay": 3000,
+        "typingNewMessageDelay": 5000
+    },
+    "userSettings": {
+        "emotions": {
+            "removeAuto": true,
+            "removeAutoDelay": 3000,
+            "keep": true
+        }
+    },
+    "browser": {
+        "indexUrl": "http://galaxy.mobstudio.ru/web/assets/index.html?16",
+        "dev": {
+            "indexUrl": "/web/assets/index.html?16"
+        },
+        "cssUrl": "http://galaxy.mobstudio.ru/services/css/browser-%1.css",
+        "jsUrl": "http://galaxy.mobstudio.ru/services/js/browser-%1.js",
+        "defaultCss": 21,
+        "defaultJs": 203,
+        "loaderShowDelay": 300,
+        "historyCount": 10,
+        "requestAliases": [
+            "galaxy.mobstudio.ru",
+            "lb.mobstudio.ru"
+        ],
+        "actionHashAliases": {
+            "user_reg": "reg",
+            "mail_main_new": "mail",
+            "friends": "friends",
+            "dating": "dating",
+            "gallery": "photo",
+            "clans": "clans",
+            "roulette_index": "roulette",
+            "market_main": "market",
+            "games": "games",
+            "lottery": "lottery",
+            "pets_menu": "pets",
+            "blogs_index": "blogs",
+            "chat_stories_redirect": "stories",
+            "ui_search": "search",
+            "user_settings": "settings",
+            "help": "help",
+            "pay": "pay"
+        }
+    },
+    "downloads": {
+        "ios": {
+            "title": "Apple App Store",
+            "imageUrl": "/web/assets/apple_app_store_%1@2x.png",
+            "url": "https://in-galaxy.com/get/trackingAppStore/promo/%10"
+        },
+        "android": {
+            "title": "Google Play",
+            "imageUrl": "/web/assets/google_play_%1@2x.png",
+            "url": "https://play.google.com/store/apps/details?id=ru.mobstudio.andgalaxy&referrer=utm_source%3Dzorka%26utm_medium%3Dpartner%26utm_campaign%3D%10"
+        }
+    },
+    "translate": {
+        "locales": [
+            "ru",
+            "en",
+            "es",
+            "pt"
+        ],
+        "reserveLocale": "en"
+    },
+    "app": {
+        "updatePlanetAppBlurDelay": 1000
+    },
+    "sounds": {
+        "url": "/web/assets/sounds/%1.wav"
+    },
+    "defaultPartner": 25
+}

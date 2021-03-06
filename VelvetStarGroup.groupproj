@@ -6,11 +6,14 @@
         <Projects Include="FluentUI\FluentUI.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Sources\Components\GalaxyComponents.dproj">
+        <Projects Include="GalaxyMarsApi\GalaxyMarsApi.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="GalaxySunApi\GalaxySunApi.dproj">
+            <Dependencies>GalaxyMarsApi\GalaxyMarsApi.dproj</Dependencies>
+        </Projects>
         <Projects Include="VelvetStarCE.dproj">
-            <Dependencies>FluentUI\FluentUI.dproj;Sources\Components\GalaxyComponents.dproj</Dependencies>
+            <Dependencies>GalaxySunApi\GalaxySunApi.dproj;FluentUI\FluentUI.dproj;GalaxyMarsApi\GalaxyMarsApi.dproj</Dependencies>
         </Projects>
     </ItemGroup>
     <ProjectExtensions>
@@ -29,32 +32,41 @@
     <Target Name="FluentUI:Make">
         <MSBuild Projects="FluentUI\FluentUI.dproj" Targets="Make"/>
     </Target>
-    <Target Name="GalaxyComponents">
-        <MSBuild Projects="Sources\Components\GalaxyComponents.dproj"/>
+    <Target Name="GalaxyMarsApi">
+        <MSBuild Projects="GalaxyMarsApi\GalaxyMarsApi.dproj"/>
     </Target>
-    <Target Name="GalaxyComponents:Clean">
-        <MSBuild Projects="Sources\Components\GalaxyComponents.dproj" Targets="Clean"/>
+    <Target Name="GalaxyMarsApi:Clean">
+        <MSBuild Projects="GalaxyMarsApi\GalaxyMarsApi.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="GalaxyComponents:Make">
-        <MSBuild Projects="Sources\Components\GalaxyComponents.dproj" Targets="Make"/>
+    <Target Name="GalaxyMarsApi:Make">
+        <MSBuild Projects="GalaxyMarsApi\GalaxyMarsApi.dproj" Targets="Make"/>
     </Target>
-    <Target Name="VelvetStarCE" DependsOnTargets="FluentUI;GalaxyComponents">
+    <Target Name="GalaxySunApi" DependsOnTargets="GalaxyMarsApi">
+        <MSBuild Projects="GalaxySunApi\GalaxySunApi.dproj"/>
+    </Target>
+    <Target Name="GalaxySunApi:Clean" DependsOnTargets="GalaxyMarsApi:Clean">
+        <MSBuild Projects="GalaxySunApi\GalaxySunApi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GalaxySunApi:Make" DependsOnTargets="GalaxyMarsApi:Make">
+        <MSBuild Projects="GalaxySunApi\GalaxySunApi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VelvetStarCE" DependsOnTargets="GalaxySunApi;FluentUI;GalaxyMarsApi">
         <MSBuild Projects="VelvetStarCE.dproj"/>
     </Target>
-    <Target Name="VelvetStarCE:Clean" DependsOnTargets="FluentUI:Clean;GalaxyComponents:Clean">
+    <Target Name="VelvetStarCE:Clean" DependsOnTargets="GalaxySunApi:Clean;FluentUI:Clean;GalaxyMarsApi:Clean">
         <MSBuild Projects="VelvetStarCE.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="VelvetStarCE:Make" DependsOnTargets="FluentUI:Make;GalaxyComponents:Make">
+    <Target Name="VelvetStarCE:Make" DependsOnTargets="GalaxySunApi:Make;FluentUI:Make;GalaxyMarsApi:Make">
         <MSBuild Projects="VelvetStarCE.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="FluentUI;GalaxyComponents;VelvetStarCE"/>
+        <CallTarget Targets="FluentUI;GalaxyMarsApi;GalaxySunApi;VelvetStarCE"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FluentUI:Clean;GalaxyComponents:Clean;VelvetStarCE:Clean"/>
+        <CallTarget Targets="FluentUI:Clean;GalaxyMarsApi:Clean;GalaxySunApi:Clean;VelvetStarCE:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FluentUI:Make;GalaxyComponents:Make;VelvetStarCE:Make"/>
+        <CallTarget Targets="FluentUI:Make;GalaxyMarsApi:Make;GalaxySunApi:Make;VelvetStarCE:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
