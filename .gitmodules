@@ -4,3 +4,6 @@
 [submodule "GalaxySunApi"]
 	path = GalaxySunApi
 	url = https://github.com/ms301/GalaxySunApi.git
+[submodule "mORMot2"]
+	path = mORMot2
+	url = https://github.com/synopse/mORMot2.git
