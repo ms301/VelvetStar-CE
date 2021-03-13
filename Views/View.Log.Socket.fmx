@@ -1,0 +1,5 @@
+object ViewLogSocket: TViewLogSocket
+  Size.Width = 533.000000000000000000
+  Size.Height = 354.000000000000000000
+  Size.PlatformDefault = False
+end

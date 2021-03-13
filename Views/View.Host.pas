@@ -35,6 +35,7 @@ type
     btnViewAbout: TSpeedButton;
     fgLinkedLabel1: TfgLinkedLabel;
     StyleBook1: TStyleBook;
+    btnViewLogs: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure DoButtonNavigateClicked(Sender: TObject);
@@ -55,6 +56,7 @@ implementation
 uses
   View.Auth,
   View.Modules,
+  View.Log,
   View.About;
 {$R *.fmx}
 
@@ -74,6 +76,7 @@ begin
   RegisterViews([ //
     TViewClientAuth //
     , TViewModules //
+    , TViewLog //
     , TViewAbout //
     ]);
 

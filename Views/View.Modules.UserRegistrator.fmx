@@ -333,8 +333,8 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
       Options = [ColumnResize, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
       OnGetValue = Grid1GetValue
       OnResized = Grid1Resized
-      Viewport.Width = 592.000000000000000000
-      Viewport.Height = 107.000000000000000000
+      Viewport.Width = 596.000000000000000000
+      Viewport.Height = 132.000000000000000000
       object StringColumn1: TStringColumn
         Header = #1053#1080#1082
         Size.Width = 209.000000000000000000

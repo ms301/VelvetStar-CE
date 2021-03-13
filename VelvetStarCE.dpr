@@ -11,7 +11,9 @@ uses
   View.Modules in 'Views\View.Modules.pas' {ViewModules: TFrame},
   View.Modules.UserRegistrator in 'Views\View.Modules.UserRegistrator.pas' {ViewModulesUserRegistrator: TFrame},
   View.About in 'Views\View.About.pas' {ViewAbout: TFrame},
-  FluentUI.Helpers.TControl in 'FluentUI\FluentUI.Helpers.TControl.pas';
+  FluentUI.Helpers.TControl in 'FluentUI\FluentUI.Helpers.TControl.pas',
+  View.Log in 'Views\View.Log.pas' {ViewLog: TFrame},
+  View.Log.Socket in 'Views\View.Log.Socket.pas' {ViewLogSocket: TFrame};
 
 {$R *.res}
 

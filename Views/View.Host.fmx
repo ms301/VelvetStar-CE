@@ -6550,13 +6550,26 @@ object ViewHost: TViewHost
         StaysPressed = True
         Align = Left
         GroupName = 'General-Menu-Tabs'
-        Position.X = 244.000000000000000000
+        Position.X = 324.000000000000000000
         Position.Y = 2.000000000000000000
         Size.Width = 80.000000000000000000
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'SpeedButtonTabStyle'
         Text = 'About'
+        OnClick = DoButtonNavigateClicked
+      end
+      object btnViewLogs: TSpeedButton
+        StaysPressed = True
+        Align = Left
+        GroupName = 'General-Menu-Tabs'
+        Position.X = 244.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'SpeedButtonTabStyle'
+        Text = #1051#1086#1075#1080
         OnClick = DoButtonNavigateClicked
       end
     end

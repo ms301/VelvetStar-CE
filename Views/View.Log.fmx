@@ -1,0 +1,119 @@
+object ViewLog: TViewLog
+  Align = Client
+  Size.Width = 509.000000000000000000
+  Size.Height = 362.000000000000000000
+  Size.PlatformDefault = False
+  object Layout1: TLayout
+    Align = Top
+    Margins.Bottom = 28.000000000000000000
+    Size.Width = 509.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Label1: TLabel
+      Align = Left
+      StyledSettings = [Family, FontColor]
+      Size.Width = 97.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 32.000000000000000000
+      Text = #1051#1086#1075#1080
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 97.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.VertAlign = Trailing
+      Text = 'v 0.1 beta'
+      TabOrder = 1
+    end
+  end
+  object ToolBar1: TToolBar
+    Padding.Left = 4.000000000000000000
+    Padding.Top = 2.000000000000000000
+    Padding.Right = 4.000000000000000000
+    Padding.Bottom = 2.000000000000000000
+    Position.Y = 68.000000000000000000
+    Size.Width = 509.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnViewLogSocket: TSpeedButton
+      StaysPressed = True
+      Align = Left
+      GroupName = 'Log-Menu-Tabs'
+      Position.X = 4.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'SpeedButtonTabStyle'
+      Text = 'Sock'
+      OnClick = DoButtonNavigateClicked
+    end
+    object btnViewClientChat: TSpeedButton
+      StaysPressed = True
+      Align = Left
+      Enabled = False
+      GroupName = 'Log-Menu-Tabs'
+      Position.X = 84.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'SpeedButtonTabStyle'
+      Text = '1'
+    end
+    object btnViewModules: TSpeedButton
+      StaysPressed = True
+      Align = Left
+      Enabled = False
+      GroupName = 'Log-Menu-Tabs'
+      Position.X = 164.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'SpeedButtonTabStyle'
+      Text = '2'
+    end
+    object btnViewAbout: TSpeedButton
+      StaysPressed = True
+      Align = Left
+      Enabled = False
+      GroupName = 'Log-Menu-Tabs'
+      Position.X = 324.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'SpeedButtonTabStyle'
+      Text = '4'
+    end
+    object btnViewLogs: TSpeedButton
+      StaysPressed = True
+      Align = Left
+      Enabled = False
+      GroupName = 'Log-Menu-Tabs'
+      Position.X = 244.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'SpeedButtonTabStyle'
+      Text = '3'
+    end
+  end
+  object lytContent: TLayout
+    Align = Client
+    Size.Width = 509.000000000000000000
+    Size.Height = 254.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+end
