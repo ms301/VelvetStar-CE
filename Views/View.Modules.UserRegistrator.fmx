@@ -40,11 +40,11 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
     Padding.Left = 28.000000000000000000
     Padding.Top = 28.000000000000000000
     Padding.Right = 28.000000000000000000
-    Padding.Bottom = 28.000000000000000000
+    Padding.Bottom = 14.000000000000000000
     Margins.Bottom = 28.000000000000000000
     Position.Y = 217.000000000000000000
     Size.Width = 652.000000000000000000
-    Size.Height = 228.000000000000000000
+    Size.Height = 224.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
     object ShadowEffect2: TShadowEffect
@@ -55,9 +55,11 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
       ShadowColor = claBlack
     end
     object FlowLayout1: TFlowLayout
-      Align = Client
+      Align = Top
+      Position.X = 28.000000000000000000
+      Position.Y = 28.000000000000000000
       Size.Width = 596.000000000000000000
-      Size.Height = 172.000000000000000000
+      Size.Height = 109.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       Justify = Justify
@@ -65,14 +67,13 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
       FlowDirection = LeftToRight
       HorizontalGap = 5.000000000000000000
       VerticalGap = 5.000000000000000000
-      OnResized = FlowLayout1Resized
       object lytNick: TLayout
         Padding.Left = 25.000000000000000000
         Padding.Right = 25.000000000000000000
         Size.Width = 200.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 1
+        TabOrder = 0
         object Label5: TLabel
           Align = Top
           StyledSettings = [Family, FontColor]
@@ -106,7 +107,7 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
         Size.Width = 201.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 3
+        TabOrder = 2
         object Layout6: TLayout
           Align = Top
           Position.X = 25.000000000000000000
@@ -159,7 +160,7 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
         Size.Width = 200.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 4
+        TabOrder = 3
         object Label6: TLabel
           Align = Top
           StyledSettings = [Family, FontColor]
@@ -195,7 +196,7 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
         Size.Width = 200.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 2
+        TabOrder = 1
         object edtBody: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
@@ -223,14 +224,26 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
           TabOrder = 0
         end
       end
+    end
+    object Layout3: TLayout
+      Align = Top
+      Margins.Top = 5.000000000000000000
+      Position.X = 28.000000000000000000
+      Position.Y = 142.000000000000000000
+      Size.Width = 596.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
       object btnRegister: TButton
-        Align = Center
+        Align = Right
         Margins.Left = 25.000000000000000000
         Margins.Top = 5.000000000000000000
         Margins.Right = 25.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Size.Width = 150.000000000000000000
-        Size.Height = 32.000000000000000000
+        Position.X = 471.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'FluentButtonPrimary'
         TabOrder = 0
@@ -252,7 +265,6 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
     Size.Height = 121.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
-    OnResized = rctHeaderResized
     object Label3: TLabel
       Align = Top
       AutoSize = True
@@ -297,7 +309,7 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
     Padding.Top = 28.000000000000000000
     Padding.Right = 28.000000000000000000
     Padding.Bottom = 28.000000000000000000
-    Position.Y = 473.000000000000000000
+    Position.Y = 469.000000000000000000
     Size.Width = 652.000000000000000000
     Size.Height = 228.000000000000000000
     Size.PlatformDefault = False
@@ -320,6 +332,7 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
       RowCount = 0
       Options = [ColumnResize, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
       OnGetValue = Grid1GetValue
+      OnResized = Grid1Resized
       Viewport.Width = 592.000000000000000000
       Viewport.Height = 107.000000000000000000
       object StringColumn1: TStringColumn
@@ -333,6 +346,9 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
       object StringColumn3: TStringColumn
         Header = #1055#1072#1088#1086#1083#1100
         Size.Width = 191.000000000000000000
+      end
+      object StringColumn4: TStringColumn
+        Header = #1050#1086#1076' '#1074#1086#1089#1089#1090#1072#1085#1086#1074#1083#1077#1085#1080#1103
       end
     end
     object Layout2: TLayout
@@ -349,9 +365,9 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
         Margins.Top = 5.000000000000000000
         Margins.Right = 25.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Position.X = 421.000000000000000000
+        Position.X = 471.000000000000000000
         Position.Y = 5.000000000000000000
-        Size.Width = 150.000000000000000000
+        Size.Width = 100.000000000000000000
         Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'FluentButtonPrimary'

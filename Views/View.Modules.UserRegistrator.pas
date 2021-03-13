@@ -46,7 +46,6 @@ type
     Switch1: TSwitch;
     Label8: TLabel;
     Label9: TLabel;
-    btnRegister: TButton;
     Rectangle1: TRectangle;
     ShadowEffect3: TShadowEffect;
     Grid1: TGrid;
@@ -55,12 +54,14 @@ type
     StringColumn3: TStringColumn;
     Layout2: TLayout;
     btnSavePersons: TButton;
+    Layout3: TLayout;
+    btnRegister: TButton;
+    StringColumn4: TStringColumn;
     procedure btnRegisterClick(Sender: TObject);
     procedure btnSavePersonsClick(Sender: TObject);
-    procedure FlowLayout1Resized(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure Grid1GetValue(Sender: TObject; const ACol, ARow: Integer; var Value: TValue);
-    procedure rctHeaderResized(Sender: TObject);
+    procedure Grid1Resized(Sender: TObject);
     procedure Switch1Switch(Sender: TObject);
   private
     { Private declarations }
@@ -70,6 +71,7 @@ type
     procedure UpdateData;
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
+    procedure AutoHeight;
   end;
 
 implementation
@@ -83,7 +85,6 @@ uses
 constructor TViewModulesUserRegistrator.Create(AOwner: TComponent);
 begin
   inherited;
-
   FUserList := TgAccounts.Create;
   UpdateData;
 end;
@@ -94,20 +95,40 @@ begin
   inherited;
 end;
 
+procedure TViewModulesUserRegistrator.AutoHeight;
+begin
+  rctHeader.Height := rctHeader.RecomendHeight;
+  FlowLayout1.Height := FlowLayout1.RecomendHeight;
+  rctBody.Height := rctBody.RecomendHeight;
+  Self.Height := Self.RecomendHeight;
+end;
+
 procedure TViewModulesUserRegistrator.btnRegisterClick(Sender: TObject);
 var
   lNick: string;
   lHead, lBody: Integer;
   lIsMan: Boolean;
-  lAccout: TgAccount;
+  lThread: TThread;
 begin
   lNick := edtNick.TextOrPromt;
   lHead := edtHead.TextOrPromt.ToInteger;
   lBody := edtBody.TextOrPromt.ToInteger;
   lIsMan := not Switch1.IsChecked;
-  lAccout := TgWebRequest.RegUser(lNick, lHead, lBody, lIsMan);
-  FUserList.Add(lAccout);
-  UpdateData;
+  lThread := TThread.CreateAnonymousThread(
+    procedure
+    var
+      lAccout: TgAccount;
+    begin
+      lAccout := TgWebRequest.RegUser(lNick, lHead, lBody, lIsMan);
+      TThread.Synchronize(nil,
+        procedure
+        begin
+          FUserList.Add(lAccout);
+          UpdateData;
+        end);
+    end);
+  lThread.FreeOnTerminate := True;
+  lThread.Start;
 end;
 
 procedure TViewModulesUserRegistrator.btnSavePersonsClick(Sender: TObject);
@@ -126,14 +147,9 @@ begin
   end;
 end;
 
-procedure TViewModulesUserRegistrator.FlowLayout1Resized(Sender: TObject);
-begin
-  rctBody.Height := FlowLayout1.RecomendHeightForParent;
-end;
-
 procedure TViewModulesUserRegistrator.FrameResize(Sender: TObject);
 begin
-  Self.Height := Self.RecomendHeight;
+  AutoHeight;
 end;
 
 procedure TViewModulesUserRegistrator.Grid1GetValue(Sender: TObject; const ACol, ARow: Integer; var Value: TValue);
@@ -154,9 +170,15 @@ begin
   end;
 end;
 
-procedure TViewModulesUserRegistrator.rctHeaderResized(Sender: TObject);
+procedure TViewModulesUserRegistrator.Grid1Resized(Sender: TObject);
+var
+  lWidth: single;
 begin
-  rctHeader.Height := rctHeader.RecomendHeight;
+  lWidth := Grid1.Width / Grid1.ColumnCount;
+  StringColumn1.Width := lWidth;
+  StringColumn2.Width := lWidth;
+  StringColumn3.Width := lWidth;
+  StringColumn4.Width := lWidth;
 end;
 
 procedure TViewModulesUserRegistrator.Switch1Switch(Sender: TObject);
@@ -170,7 +192,6 @@ end;
 procedure TViewModulesUserRegistrator.UpdateData;
 begin
   edtNick.TextPrompt := TgNickGenerator.OldNick(10).GenerateNick;
-  Self.Height := Self.RecomendHeight;
   Grid1.RowCount := FUserList.Count;
 end;
 
