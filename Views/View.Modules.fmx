@@ -30,8 +30,8 @@ object ViewModules: TViewModules
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
       OnItemClick = DoModuleNavigateClicked
-      Viewport.Width = 169.000000000000000000
-      Viewport.Height = 466.000000000000000000
+      Viewport.Width = 173.000000000000000000
+      Viewport.Height = 470.000000000000000000
       object lbViewModulesUserRegistrator: TListBoxItem
         TextSettings.Font.Size = 14.000000000000000000
         StyledSettings = [Family, Style, FontColor, Other]
@@ -44,7 +44,7 @@ object ViewModules: TViewModules
       end
     end
   end
-  object lytContent: TLayout
+  object ScrollBox1: TScrollBox
     Align = Client
     Padding.Left = 16.000000000000000000
     Padding.Top = 28.000000000000000000
@@ -53,6 +53,10 @@ object ViewModules: TViewModules
     Size.Width = 446.000000000000000000
     Size.Height = 502.000000000000000000
     Size.PlatformDefault = False
+    StyleLookup = 'scrollboxstyle'
     TabOrder = 1
+    ShowSizeGrip = True
+    Viewport.Width = 446.000000000000000000
+    Viewport.Height = 502.000000000000000000
   end
 end

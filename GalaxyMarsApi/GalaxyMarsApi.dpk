@@ -34,6 +34,8 @@ requires
 contains
   Galaxy.AccountsViewer in 'Components\Galaxy.AccountsViewer.pas',
   Galaxy.ComponentRegister in 'Components\Galaxy.ComponentRegister.pas',
-  Galaxy.Model.Account in 'Model\Galaxy.Model.Account.pas';
+  Galaxy.Model.Account in 'Model\Galaxy.Model.Account.pas',
+  GMA.Tools.NickGenerator in 'GMA.Tools.NickGenerator.pas',
+  Galaxy.Model.Accounts in 'Model\Galaxy.Model.Accounts.pas';
 
 end.

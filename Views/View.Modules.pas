@@ -18,8 +18,8 @@ type
   TViewModules = class(TFrame)
     ListBox1: TListBox;
     GroupBox1: TGroupBox;
-    lytContent: TLayout;
     lbViewModulesUserRegistrator: TListBoxItem;
+    ScrollBox1: TScrollBox;
     procedure DoModuleNavigateClicked(const Sender: TCustomListBox; const Item: TListBoxItem);
   private
     { Private declarations }
@@ -43,7 +43,7 @@ constructor TViewModules.Create(AOwner: TComponent);
 begin
   inherited;
   FViewManager := TViewNavigator.Create;
-  FViewManager.Parent := lytContent;
+  FViewManager.Parent := ScrollBox1;
   RegisterViews([ //
     TViewModulesUserRegistrator //
     // , TViewModules //

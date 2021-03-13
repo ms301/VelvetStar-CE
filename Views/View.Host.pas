@@ -19,7 +19,8 @@ uses
   System.Variants,
 
   ViewNavigator,
-  FMX.Edit, FGX.LinkedLabel, FMX.ListBox;
+  FMX.Edit, FGX.LinkedLabel, FMX.ListBox, System.Rtti, FMX.Grid.Style, FMX.Grid,
+  FMX.ScrollBox;
 
 type
   TViewHost = class(TForm)
@@ -33,6 +34,7 @@ type
     btnViewModules: TSpeedButton;
     btnViewAbout: TSpeedButton;
     fgLinkedLabel1: TfgLinkedLabel;
+    StyleBook1: TStyleBook;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure DoButtonNavigateClicked(Sender: TObject);
@@ -51,6 +53,7 @@ var
 implementation
 
 uses
+  Galaxy.Web,
   View.Auth,
   View.Modules,
   View.About;
@@ -91,5 +94,9 @@ begin
   for i := Low(AViews) to High(AViews) do
     FViewManager.Store.AddView(AViews[i]);
 end;
+
+initialization
+
+TgWebRequest.classname;
 
 end.

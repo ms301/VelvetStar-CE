@@ -1,12 +1,13 @@
 object ViewModulesUserRegistrator: TViewModulesUserRegistrator
-  Align = Client
-  Size.Width = 597.000000000000000000
-  Size.Height = 510.000000000000000000
+  Align = Top
+  Size.Width = 652.000000000000000000
+  Size.Height = 737.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
   object Layout1: TLayout
     Align = Top
     Margins.Bottom = 28.000000000000000000
-    Size.Width = 597.000000000000000000
+    Size.Width = 652.000000000000000000
     Size.Height = 40.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
@@ -29,210 +30,334 @@ object ViewModulesUserRegistrator: TViewModulesUserRegistrator
       Size.PlatformDefault = False
       TextSettings.Font.Size = 14.000000000000000000
       TextSettings.VertAlign = Trailing
-      Text = 'beta'
+      Text = 'v 0.1 beta'
       TabOrder = 1
     end
   end
-  object VertScrollBox1: TVertScrollBox
-    Align = Client
-    Size.Width = 597.000000000000000000
-    Size.Height = 442.000000000000000000
+  object rctBody: TRectangle
+    Align = Top
+    Fill.Color = claWhite
+    Padding.Left = 28.000000000000000000
+    Padding.Top = 28.000000000000000000
+    Padding.Right = 28.000000000000000000
+    Padding.Bottom = 28.000000000000000000
+    Margins.Bottom = 28.000000000000000000
+    Position.Y = 217.000000000000000000
+    Size.Width = 652.000000000000000000
+    Size.Height = 228.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 1
-    Viewport.Width = 597.000000000000000000
-    Viewport.Height = 442.000000000000000000
-    object Layout2: TLayout
+    Stroke.Kind = None
+    object ShadowEffect2: TShadowEffect
+      Distance = 3.000000000000000000
+      Direction = 60.000000000000000000
+      Softness = 0.100000001490116100
+      Opacity = 0.200000002980232200
+      ShadowColor = claBlack
+    end
+    object FlowLayout1: TFlowLayout
       Align = Client
-      Size.Width = 597.000000000000000000
-      Size.Height = 442.000000000000000000
+      Size.Width = 596.000000000000000000
+      Size.Height = 172.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      object Rectangle1: TRectangle
-        Align = Top
-        Fill.Color = claWhite
-        Padding.Left = 28.000000000000000000
-        Padding.Top = 28.000000000000000000
-        Padding.Right = 28.000000000000000000
-        Padding.Bottom = 28.000000000000000000
-        Margins.Bottom = 28.000000000000000000
-        Size.Width = 597.000000000000000000
-        Size.Height = 121.000000000000000000
+      Justify = Justify
+      JustifyLastLine = Justify
+      FlowDirection = LeftToRight
+      HorizontalGap = 5.000000000000000000
+      VerticalGap = 5.000000000000000000
+      OnResized = FlowLayout1Resized
+      object lytNick: TLayout
+        Padding.Left = 25.000000000000000000
+        Padding.Right = 25.000000000000000000
+        Size.Width = 200.000000000000000000
+        Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        Stroke.Kind = None
-        object Label3: TLabel
+        TabOrder = 1
+        object Label5: TLabel
           Align = Top
-          AutoSize = True
-          StyledSettings = [Family, Style, FontColor]
-          Margins.Bottom = 20.000000000000000000
-          Position.X = 28.000000000000000000
-          Position.Y = 28.000000000000000000
-          Size.Width = 541.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 24.000000000000000000
-          Text = #1042#1072#1078#1085#1086' '#1079#1085#1072#1090#1100
-          TabOrder = 0
-        end
-        object Label4: TLabel
-          Align = Top
-          AutoSize = True
-          StyledSettings = [Family, Style, FontColor]
-          Position.X = 28.000000000000000000
-          Position.Y = 80.000000000000000000
-          Size.Width = 541.000000000000000000
-          Size.Height = 19.000000000000000000
+          StyledSettings = [Family, FontColor]
+          Margins.Top = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 14.000000000000000000
-          Text = 
-            '- '#1056#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103' '#1085#1072' '#1076#1072#1085#1085#1099#1081' '#1084#1086#1084#1077#1085#1090' '#1087#1088#1086#1080#1089#1093#1086#1076#1080#1090' '#1073#1077#1079' '#1080#1089#1087#1086#1083#1100#1079#1086#1074#1072#1085#1080#1103' '#1087#1088#1086#1082 +
-            #1089#1080
-          TabOrder = 1
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = #1053#1080#1082
+          TabOrder = 0
         end
-        object ShadowEffect1: TShadowEffect
-          Distance = 3.000000000000000000
-          Direction = 60.000000000000000000
-          Softness = 0.100000001490116100
-          Opacity = 0.200000002980232200
-          ShadowColor = claBlack
+        object edtNick: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 1
+          Position.X = 25.000000000000000000
+          Position.Y = 27.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
         end
       end
-      object Rectangle2: TRectangle
-        Align = Top
-        Fill.Color = claWhite
-        Padding.Left = 28.000000000000000000
-        Padding.Top = 28.000000000000000000
-        Padding.Right = 28.000000000000000000
-        Padding.Bottom = 28.000000000000000000
-        Position.Y = 149.000000000000000000
-        Size.Width = 597.000000000000000000
-        Size.Height = 212.000000000000000000
+      object lytSex: TLayout
+        Padding.Left = 25.000000000000000000
+        Padding.Right = 25.000000000000000000
+        Position.X = 395.000000000000000000
+        Size.Width = 201.000000000000000000
+        Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        Stroke.Kind = None
-        object GridPanelLayout1: TGridPanelLayout
-          Align = Client
-          Size.Width = 541.000000000000000000
-          Size.Height = 156.000000000000000000
+        TabOrder = 3
+        object Layout6: TLayout
+          Align = Top
+          Position.X = 25.000000000000000000
+          Position.Y = 27.000000000000000000
+          Size.Width = 151.000000000000000000
+          Size.Height = 20.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 0
-          ColumnCollection = <
-            item
-              Value = 50.000000000000000000
-            end
-            item
-              Value = 50.000000000000000000
-            end>
-          ControlCollection = <
-            item
-              Column = 0
-              Control = Layout3
-              Row = 0
-            end
-            item
-              Column = 1
-              Control = Layout4
-              Row = 0
-            end>
-          RowCollection = <
-            item
-              Value = 100.000000000000000000
-            end
-            item
-              SizeStyle = Auto
-            end>
-          object Layout3: TLayout
-            Align = Client
-            Padding.Right = 25.000000000000000000
-            Size.Width = 270.500000000000000000
-            Size.Height = 156.000000000000000000
+          TabOrder = 1
+          object Switch1: TSwitch
+            Align = Left
+            IsChecked = False
+            Size.Width = 40.000000000000000000
+            Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            object Label5: TLabel
-              Align = Top
-              StyledSettings = [Family, FontColor]
-              Margins.Top = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 245.500000000000000000
-              Size.Height = 17.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 14.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = #1053#1080#1082
-              TabOrder = 4
-            end
-            object Edit1: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Top
-              TabOrder = 5
-              Position.Y = 27.000000000000000000
-              Size.Width = 245.500000000000000000
-              Size.Height = 22.000000000000000000
-              Size.PlatformDefault = False
-            end
-            object Label6: TLabel
-              Align = Top
-              StyledSettings = [Family, FontColor]
-              Margins.Top = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.Y = 54.000000000000000000
-              Size.Width = 245.500000000000000000
-              Size.Height = 17.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 14.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = #1043#1086#1083#1086#1074#1072
-              TabOrder = 1
-            end
-            object Edit2: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Top
-              TabOrder = 3
-              Position.Y = 76.000000000000000000
-              Size.Width = 245.500000000000000000
-              Size.Height = 22.000000000000000000
-              Size.PlatformDefault = False
-            end
-            object Edit3: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Top
-              TabOrder = 2
-              Position.Y = 125.000000000000000000
-              Size.Width = 245.500000000000000000
-              Size.Height = 22.000000000000000000
-              Size.PlatformDefault = False
-            end
-            object Label7: TLabel
-              Align = Top
-              StyledSettings = [Family, FontColor]
-              Margins.Top = 5.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Position.Y = 103.000000000000000000
-              Size.Width = 245.500000000000000000
-              Size.Height = 17.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 14.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = #1058#1077#1083#1086
-              TabOrder = 0
-            end
+            OnSwitch = Switch1Switch
           end
-          object Layout4: TLayout
+          object Label8: TLabel
             Align = Client
-            Anchors = []
-            Padding.Left = 25.000000000000000000
-            Size.Width = 270.500000000000000000
-            Size.Height = 156.000000000000000000
+            StyledSettings = [Family, Style, FontColor]
+            Margins.Left = 5.000000000000000000
+            Size.Width = 106.000000000000000000
+            Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            Text = #1052#1091#1078#1089#1082#1086#1081
             TabOrder = 1
           end
         end
-        object ShadowEffect2: TShadowEffect
-          Distance = 3.000000000000000000
-          Direction = 60.000000000000000000
-          Softness = 0.100000001490116100
-          Opacity = 0.200000002980232200
-          ShadowColor = claBlack
+        object Label9: TLabel
+          Align = Top
+          StyledSettings = [Family, FontColor]
+          Margins.Top = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 151.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = #1055#1086#1083
+          TabOrder = 0
         end
+      end
+      object lytHead: TLayout
+        Align = Client
+        Padding.Left = 25.000000000000000000
+        Padding.Right = 25.000000000000000000
+        Size.Width = 200.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object Label6: TLabel
+          Align = Top
+          StyledSettings = [Family, FontColor]
+          Margins.Top = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = #1043#1086#1083#1086#1074#1072
+          TabOrder = 1
+        end
+        object edtHead: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 3
+          Position.X = 25.000000000000000000
+          Position.Y = 27.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = '206'
+        end
+      end
+      object lytBody: TLayout
+        Padding.Left = 25.000000000000000000
+        Padding.Right = 25.000000000000000000
+        Position.X = 396.000000000000000000
+        Position.Y = 55.000000000000000000
+        Size.Width = 200.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object edtBody: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 1
+          Position.X = 25.000000000000000000
+          Position.Y = 27.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = '112'
+        end
+        object Label7: TLabel
+          Align = Top
+          StyledSettings = [Family, FontColor]
+          Margins.Top = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = #1058#1077#1083#1086
+          TabOrder = 0
+        end
+      end
+      object btnRegister: TButton
+        Align = Center
+        Margins.Left = 25.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 25.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 150.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'FluentButtonPrimary'
+        TabOrder = 0
+        Text = #1056#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103
+        OnClick = btnRegisterClick
+      end
+    end
+  end
+  object rctHeader: TRectangle
+    Align = Top
+    Fill.Color = claWhite
+    Padding.Left = 28.000000000000000000
+    Padding.Top = 28.000000000000000000
+    Padding.Right = 28.000000000000000000
+    Padding.Bottom = 28.000000000000000000
+    Margins.Bottom = 28.000000000000000000
+    Position.Y = 68.000000000000000000
+    Size.Width = 652.000000000000000000
+    Size.Height = 121.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    OnResized = rctHeaderResized
+    object Label3: TLabel
+      Align = Top
+      AutoSize = True
+      StyledSettings = [Family, Style, FontColor]
+      Margins.Bottom = 20.000000000000000000
+      Position.X = 28.000000000000000000
+      Position.Y = 28.000000000000000000
+      Size.Width = 596.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 24.000000000000000000
+      Text = #1042#1072#1078#1085#1086' '#1079#1085#1072#1090#1100
+      TabOrder = 0
+    end
+    object Label4: TLabel
+      Align = Top
+      AutoSize = True
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 28.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 596.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 
+        '- '#1056#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103' '#1085#1072' '#1076#1072#1085#1085#1099#1081' '#1084#1086#1084#1077#1085#1090' '#1087#1088#1086#1080#1089#1093#1086#1076#1080#1090' '#1073#1077#1079' '#1080#1089#1087#1086#1083#1100#1079#1086#1074#1072#1085#1080#1103' '#1087#1088#1086#1082 +
+        #1089#1080
+      TabOrder = 1
+    end
+    object ShadowEffect1: TShadowEffect
+      Distance = 3.000000000000000000
+      Direction = 60.000000000000000000
+      Softness = 0.100000001490116100
+      Opacity = 0.200000002980232200
+      ShadowColor = claBlack
+    end
+  end
+  object Rectangle1: TRectangle
+    Align = Top
+    Fill.Color = claWhite
+    Padding.Left = 28.000000000000000000
+    Padding.Top = 28.000000000000000000
+    Padding.Right = 28.000000000000000000
+    Padding.Bottom = 28.000000000000000000
+    Position.Y = 473.000000000000000000
+    Size.Width = 652.000000000000000000
+    Size.Height = 228.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object ShadowEffect3: TShadowEffect
+      Distance = 3.000000000000000000
+      Direction = 60.000000000000000000
+      Softness = 0.100000001490116100
+      Opacity = 0.200000002980232200
+      ShadowColor = claBlack
+    end
+    object Grid1: TGrid
+      Align = Client
+      CanFocus = True
+      ClipChildren = True
+      Size.Width = 596.000000000000000000
+      Size.Height = 132.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      RowCount = 0
+      Options = [ColumnResize, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+      OnGetValue = Grid1GetValue
+      Viewport.Width = 592.000000000000000000
+      Viewport.Height = 107.000000000000000000
+      object StringColumn1: TStringColumn
+        Header = #1053#1080#1082
+        Size.Width = 209.000000000000000000
+      end
+      object StringColumn2: TStringColumn
+        Header = 'ID'
+        Size.Width = 132.000000000000000000
+      end
+      object StringColumn3: TStringColumn
+        Header = #1055#1072#1088#1086#1083#1100
+        Size.Width = 191.000000000000000000
+      end
+    end
+    object Layout2: TLayout
+      Align = Bottom
+      Position.X = 28.000000000000000000
+      Position.Y = 160.000000000000000000
+      Size.Width = 596.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object btnSavePersons: TButton
+        Align = Right
+        Margins.Left = 25.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 25.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 421.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 150.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'FluentButtonPrimary'
+        TabOrder = 0
+        Text = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        OnClick = btnSavePersonsClick
       end
     end
   end

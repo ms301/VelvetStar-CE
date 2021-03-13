@@ -8,7 +8,7 @@ uses
   System.Generics.Collections;
 
 type
-  TgAccount = class
+  TgAccount = record
   private
     [JsonName('Nick')]
     FNick: string;
@@ -21,38 +21,23 @@ type
     [JsonName('Avatar')]
     FAvatar: string;
   public
-    constructor Create(const AID: Integer; const APassword, ANick: string); overload;
-    constructor Create(const ARecover: string); overload;
-    constructor Create(const AID: Integer; const APassword, ANick, ARecover: string); overload;
+    class function Create(const AID: Integer; const APassword, ANick: string): TgAccount; overload; static;
+    class function Create(const ARecover: string): TgAccount; overload; static;
+    class function Create(const AID: Integer; const APassword, ANick, ARecover: string): TgAccount; overload; static;
     function CanConnectByIdPass: Boolean;
     function CanConnectByRecover: Boolean;
     function CanConnectAny: Boolean;
+    function IsEmpty: Boolean;
+    function GetIdAsString: string;
+    function GetPassAsString: string;
+    class function Empty: TgAccount; static;
+
     procedure RemoveSignin;
     property Nick: string read FNick write FNick;
     property ID: Integer read FID write FID;
     property Password: string read FPassword write FPassword;
     property Recover: string read FRecover write FRecover;
     property Avatar: string read FAvatar write FAvatar;
-  end;
-
-  TgAccounts = class
-  private type
-    TListMyAddonsConverter = class(TJsonListConverter<TgAccount>);
-  private
-    [JsonName('CurrentID')]
-    FCurrentID: Integer;
-    [JsonName('Items')]
-    [JsonConverter(TListMyAddonsConverter)]
-    FItems: TObjectList<TgAccount>;
-  protected
-  public
-    function Current: TgAccount;
-    constructor Create;
-    destructor Destroy; override;
-    procedure AddOrSet(Account: TgAccount);
-    function Contains(Account: TgAccount): Integer;
-    property Items: TObjectList<TgAccount> read FItems;
-    property CurrentID: Integer read FCurrentID write FCurrentID;
   end;
 
 implementation
@@ -78,12 +63,12 @@ begin
   Result := not Recover.IsEmpty;
 end;
 
-constructor TgAccount.Create(const AID: Integer; const APassword, ANick, ARecover: string);
+class function TgAccount.Create(const AID: Integer; const APassword, ANick, ARecover: string): TgAccount;
 begin
-  FID := AID;
-  FPassword := APassword;
-  FNick := ANick;
-  FRecover := ARecover;
+  Result.FID := AID;
+  Result.FPassword := APassword;
+  Result.FNick := ANick;
+  Result.FRecover := ARecover;
 end;
 
 procedure TgAccount.RemoveSignin;
@@ -91,55 +76,40 @@ begin
   Password := string.Empty;
 end;
 
-constructor TgAccount.Create(const AID: Integer; const APassword, ANick: string);
+class function TgAccount.Create(const AID: Integer; const APassword, ANick: string): TgAccount;
 begin
-  Create(AID, APassword, ANick, '');
+  Result := TgAccount.Create(AID, APassword, ANick, '');
 end;
 
-constructor TgAccount.Create(const ARecover: string);
+class function TgAccount.Create(const ARecover: string): TgAccount;
 begin
-  Create(0, '', '', ARecover);;
+  Result := TgAccount.Create(0, '', '', ARecover);;
 end;
 
-{ TgAccounts }
-
-procedure TgAccounts.AddOrSet(Account: TgAccount);
-var
-  LPos: Integer;
+class function TgAccount.Empty: TgAccount;
 begin
-  LPos := Contains(Account);
-  if LPos > -1 then
-    FItems[LPos] := Account
+  Result := TgAccount.Create(0, string.Empty, string.Empty, string.Empty);
+end;
+
+function TgAccount.GetIdAsString: string;
+begin
+  if FID > 0 then
+    Result := FID.ToString
   else
-    FItems.Add(Account);
+    Result := 'NaN';
 end;
 
-function TgAccounts.Contains(Account: TgAccount): Integer;
-var
-  I: Integer;
+function TgAccount.GetPassAsString: string;
 begin
-  Result := -1;
-  for I := 0 to FItems.Count - 1 do
-    if FItems[I].ID = Account.ID then
-      Exit(I);
+  if FPassword.IsEmpty then
+    Result := 'null'
+  else
+    Result := FPassword;
 end;
 
-constructor TgAccounts.Create;
+function TgAccount.IsEmpty: Boolean;
 begin
-  inherited Create();
-  FItems := TObjectList<TgAccount>.Create;
-  FCurrentID := -1;
-end;
-
-function TgAccounts.Current: TgAccount;
-begin
-  Result := FItems[FCurrentID];
-end;
-
-destructor TgAccounts.Destroy;
-begin
-  FItems.Free;
-  inherited;
+  Result := not CanConnectAny;
 end;
 
 end.

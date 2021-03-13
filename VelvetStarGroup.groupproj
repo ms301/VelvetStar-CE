@@ -12,6 +12,9 @@
         <Projects Include="GalaxySunApi\GalaxySunApi.dproj">
             <Dependencies>GalaxyMarsApi\GalaxyMarsApi.dproj</Dependencies>
         </Projects>
+        <Projects Include="GalaxySunApi\Tests\GalaxySunTest.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="VelvetStarCE.dproj">
             <Dependencies>GalaxySunApi\GalaxySunApi.dproj;FluentUI\FluentUI.dproj;GalaxyMarsApi\GalaxyMarsApi.dproj</Dependencies>
         </Projects>
@@ -50,6 +53,15 @@
     <Target Name="GalaxySunApi:Make" DependsOnTargets="GalaxyMarsApi:Make">
         <MSBuild Projects="GalaxySunApi\GalaxySunApi.dproj" Targets="Make"/>
     </Target>
+    <Target Name="GalaxySunTest">
+        <MSBuild Projects="GalaxySunApi\Tests\GalaxySunTest.dproj"/>
+    </Target>
+    <Target Name="GalaxySunTest:Clean">
+        <MSBuild Projects="GalaxySunApi\Tests\GalaxySunTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GalaxySunTest:Make">
+        <MSBuild Projects="GalaxySunApi\Tests\GalaxySunTest.dproj" Targets="Make"/>
+    </Target>
     <Target Name="VelvetStarCE" DependsOnTargets="GalaxySunApi;FluentUI;GalaxyMarsApi">
         <MSBuild Projects="VelvetStarCE.dproj"/>
     </Target>
@@ -60,13 +72,13 @@
         <MSBuild Projects="VelvetStarCE.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="FluentUI;GalaxyMarsApi;GalaxySunApi;VelvetStarCE"/>
+        <CallTarget Targets="FluentUI;GalaxyMarsApi;GalaxySunApi;GalaxySunTest;VelvetStarCE"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FluentUI:Clean;GalaxyMarsApi:Clean;GalaxySunApi:Clean;VelvetStarCE:Clean"/>
+        <CallTarget Targets="FluentUI:Clean;GalaxyMarsApi:Clean;GalaxySunApi:Clean;GalaxySunTest:Clean;VelvetStarCE:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FluentUI:Make;GalaxyMarsApi:Make;GalaxySunApi:Make;VelvetStarCE:Make"/>
+        <CallTarget Targets="FluentUI:Make;GalaxyMarsApi:Make;GalaxySunApi:Make;GalaxySunTest:Make;VelvetStarCE:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
