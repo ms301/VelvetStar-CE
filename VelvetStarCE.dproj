@@ -52,9 +52,11 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <SanitizedProjectName>VelvetStarCE</SanitizedProjectName>
-        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\viewnavigator\Demo\FGX;modules\viewnavigator\Demo\FMX;modules\viewnavigator\Test;modules\viewnavigator;GalaxyMarsApi;GalaxySunApi;GalaxySunApi\Hash;GalaxySunApi\Parser;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\viewnavigator\Demo\FGX;modules\viewnavigator\Demo\FMX;modules\viewnavigator\Test;modules\viewnavigator;GalaxyMarsApi;GalaxySunApi;GalaxySunApi\Hash;GalaxySunApi\Parser;$(MORMOT2)\src\app;$(MORMOT2)\src\core;$(MORMOT2)\src\db;$(MORMOT2)\src\ddd;$(MORMOT2)\src\lib;$(MORMOT2)\src\net;$(MORMOT2)\src\orm;$(MORMOT2)\src\rest;$(MORMOT2)\src\soa;$(MORMOT2)\src\tools;$(MORMOT2)\src\;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <Debugger_IncludeSystemVars>true</Debugger_IncludeSystemVars>
+        <Debugger_EnvVars>$(MORMOT2)=mORMot2;$(Debugger_EnvVars)</Debugger_EnvVars>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;vcl;IndyIPServer;vclactnband;vclFireDAC;IndySystem;tethering;svnui;dsnapcon;FireDACADSDriver;FireDACMSAccDriver;fmxFireDAC;vclimg;FireDAC;vcltouch;vcldb;bindcompfmx;svn;FireDACSqliteDriver;FireDACPgDriver;inetdb;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;fmxdae;xmlrtl;soapmidas;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;dbexpress;IndyCore;vclx;bindcomp;appanalytics;dsnap;FireDACCommon;IndyIPClient;bindcompvcl;RESTBackendComponents;VCLRESTComponents;soapserver;dbxcds;VclSmp;adortl;vclie;bindengine;DBXMySQLDriver;CloudService;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;FireDACCommonDriver;inet;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
