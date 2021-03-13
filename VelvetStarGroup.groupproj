@@ -13,7 +13,7 @@
             <Dependencies>GalaxyMarsApi\GalaxyMarsApi.dproj</Dependencies>
         </Projects>
         <Projects Include="GalaxySunApi\Tests\GalaxySunTest.dproj">
-            <Dependencies/>
+            <Dependencies>GalaxySunApi\GalaxySunApi.dproj</Dependencies>
         </Projects>
         <Projects Include="VelvetStarCE.dproj">
             <Dependencies>GalaxySunApi\GalaxySunApi.dproj;FluentUI\FluentUI.dproj;GalaxyMarsApi\GalaxyMarsApi.dproj</Dependencies>
@@ -53,13 +53,13 @@
     <Target Name="GalaxySunApi:Make" DependsOnTargets="GalaxyMarsApi:Make">
         <MSBuild Projects="GalaxySunApi\GalaxySunApi.dproj" Targets="Make"/>
     </Target>
-    <Target Name="GalaxySunTest">
+    <Target Name="GalaxySunTest" DependsOnTargets="GalaxySunApi">
         <MSBuild Projects="GalaxySunApi\Tests\GalaxySunTest.dproj"/>
     </Target>
-    <Target Name="GalaxySunTest:Clean">
+    <Target Name="GalaxySunTest:Clean" DependsOnTargets="GalaxySunApi:Clean">
         <MSBuild Projects="GalaxySunApi\Tests\GalaxySunTest.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="GalaxySunTest:Make">
+    <Target Name="GalaxySunTest:Make" DependsOnTargets="GalaxySunApi:Make">
         <MSBuild Projects="GalaxySunApi\Tests\GalaxySunTest.dproj" Targets="Make"/>
     </Target>
     <Target Name="VelvetStarCE" DependsOnTargets="GalaxySunApi;FluentUI;GalaxyMarsApi">

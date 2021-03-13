@@ -79,11 +79,36 @@
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="fmx.dcp"/>
-        <DCCReference Include="Components\Galaxy.AccountsViewer.pas"/>
-        <DCCReference Include="Components\Galaxy.ComponentRegister.pas"/>
-        <DCCReference Include="Model\Galaxy.Model.Account.pas"/>
-        <DCCReference Include="GMA.Tools.NickGenerator.pas"/>
-        <DCCReference Include="Model\Galaxy.Model.Accounts.pas"/>
+        <DCCReference Include="GMA.Model.View.pas"/>
+        <DCCReference Include="GMA.Model.ViewData.Animation.pas"/>
+        <DCCReference Include="GMA.Model.ViewData.Data.pas"/>
+        <DCCReference Include="GMA.Model.ViewData.Image.Cut.pas"/>
+        <DCCReference Include="GMA.Model.ViewData.Image.pas"/>
+        <DCCReference Include="GMA.Component.AccountsViewer.pas"/>
+        <DCCReference Include="GMA.ComponentRegister.pas"/>
+        <DCCReference Include="GMA.Model.Account.pas"/>
+        <DCCReference Include="GMA.Model.Accounts.pas"/>
+        <DCCReference Include="GMA.Model.Message.pas"/>
+        <DCCReference Include="GMA.Model.Teleport.pas"/>
+        <DCCReference Include="GMA.Core.Tools.NickGenerator.pas"/>
+        <DCCReference Include="GMA.Types.Person.pas"/>
+        <DCCReference Include="GMA.Core.Tools.pas"/>
+        <DCCReference Include="GMA.Model.ActionItem.pas"/>
+        <DCCReference Include="GMA.Model.Addons.pas"/>
+        <DCCReference Include="GMA.Model.AddonTags.pas"/>
+        <DCCReference Include="GMA.Model.ChanelInfo.pas"/>
+        <DCCReference Include="GMA.Model.Emotion.pas"/>
+        <DCCReference Include="GMA.Model.Event.pas"/>
+        <DCCReference Include="GMA.Model.gObject.MoveObjInfo.pas"/>
+        <DCCReference Include="GMA.Model.gObject.pas"/>
+        <DCCReference Include="GMA.Model.gObject.PositionInfo.pas"/>
+        <DCCReference Include="GMA.Model.gObject.Status.pas"/>
+        <DCCReference Include="GMA.Model.gObject.StatusSet.pas"/>
+        <DCCReference Include="GMA.Model.Gradient.pas"/>
+        <DCCReference Include="GMA.Model.MenuItem.pas"/>
+        <DCCReference Include="GMA.Intf.Weather.pas"/>
+        <DCCReference Include="GMA.Model.HLink.pas"/>
+        <DCCReference Include="GMA.Core.Tools.HLinks.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

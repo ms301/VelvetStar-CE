@@ -8,8 +8,8 @@ uses
   VN.Attributes,
 {$ENDREGION}
 {$REGION 'Galaxy'}
-  Galaxy.Model.Account,
-  Galaxy.Model.Accounts,
+  GMA.Model.Account,
+  GMA.Model.Accounts,
 {$ENDREGION}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
@@ -77,9 +77,9 @@ type
 implementation
 
 uses
-  Galaxy.Web,
   FluentUI.Helpers.TControl,
-  GMA.Tools.NickGenerator;
+  GSA.Web,
+  GMA.Core.Tools.NickGenerator;
 {$R *.fmx}
 
 constructor TViewModulesUserRegistrator.Create(AOwner: TComponent);

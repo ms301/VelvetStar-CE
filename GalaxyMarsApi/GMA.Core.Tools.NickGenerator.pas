@@ -1,4 +1,4 @@
-unit GMA.Tools.NickGenerator;
+unit GMA.Core.Tools.NickGenerator;
 
 interface
 

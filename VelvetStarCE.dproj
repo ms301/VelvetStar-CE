@@ -52,7 +52,7 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <SanitizedProjectName>VelvetStarCE</SanitizedProjectName>
-        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\viewnavigator\Demo\FGX;modules\viewnavigator\Demo\FMX;modules\viewnavigator\Test;modules\viewnavigator;GalaxyMarsApi;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\viewnavigator\Demo\FGX;modules\viewnavigator\Demo\FMX;modules\viewnavigator\Test;modules\viewnavigator;GalaxyMarsApi;GalaxySunApi;GalaxySunApi\Hash;GalaxySunApi\Parser;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
@@ -104,8 +104,6 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="FluentUI\FluentUI.ColorPalettes.pas"/>
-        <DCCReference Include="GalaxyMarsApi\Components\Galaxy.AccountsViewer.pas"/>
-        <DCCReference Include="GalaxyMarsApi\Model\Galaxy.Model.Account.pas"/>
         <DCCReference Include="FluentUI\FluentUI.Dialog.pas"/>
         <DCCReference Include="FluentUI\FluentUI.Core.TextTools.pas"/>
         <DCCReference Include="Views\View.Modules.pas">
@@ -120,10 +118,7 @@
             <Form>ViewAbout</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="GalaxySunApi\Galaxy.Web.pas"/>
-        <DCCReference Include="GalaxySunApi\SunApi.WebRequest.Base.pas"/>
         <DCCReference Include="FluentUI\FluentUI.Helpers.TControl.pas"/>
-        <DCCReference Include="GalaxyMarsApi\Model\Galaxy.Model.Accounts.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

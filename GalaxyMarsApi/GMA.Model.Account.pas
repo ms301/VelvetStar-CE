@@ -1,4 +1,4 @@
-unit Galaxy.Model.Account;
+unit GMA.Model.Account;
 
 interface
 

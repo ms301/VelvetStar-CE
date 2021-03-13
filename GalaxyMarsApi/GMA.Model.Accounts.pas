@@ -1,4 +1,4 @@
-unit Galaxy.Model.Accounts;
+unit GMA.Model.Accounts;
 
 interface
 
@@ -6,7 +6,7 @@ uses
   System.SysUtils,
   System.Generics.Collections,
   System.Json.Serializers,
-  Galaxy.Model.Account;
+  GMA.Model.Account;
 
 type
   TgAccounts = class(TList<TgAccount>)

@@ -1,15 +1,15 @@
-﻿unit Galaxy.AccountsViewer;
+﻿unit GMA.Component.AccountsViewer;
 
 interface
 
 uses
-  Galaxy.Model.Account,
+  GMA.Model.Account,
   FMX.Types,
   System.Generics.Collections, System.Classes, FMX.Controls, System.Types,
   System.UITypes, System.SysUtils, FMX.Graphics;
 
 type
-  TgAccountViewer = class(TControl)
+  TgAccountViewerCustom = class(TControl)
   private
     FItems: TList<TgAccount>;
     FItemWidth: Single;
@@ -36,43 +36,54 @@ type
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
-  published
     property Items: TList<TgAccount> read FItems;
     property ItemWidth: Single read FItemWidth write FItemWidth;
     property OnClick: TProc<TgAccount> read FOnClick write FOnClick;
     property OnDelete: TProc<TgAccount> read FOnDelete write FOnDelete;
   end;
 
+  TgAccountViewer = class(TgAccountViewerCustom)
+  published
+    property PopupMenu;
+    property OnDelete;
+    property OnClick;
+    property ItemWidth;
+    property Items;
+    property Align;
+  end;
+
 implementation
 
 { TgAccountViewer }
 
-constructor TgAccountViewer.Create(AOwner: TComponent);
+constructor TgAccountViewerCustom.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   FItems := TList<TgAccount>.Create;
   FItemWidth := 100;
+  if csDesigning in ComponentState then
+    FItems.Add(TgAccount.Create(9999999, 'qwerty1234', 'RareMax', 'MySuperPassword'));
 end;
 
-destructor TgAccountViewer.Destroy;
+destructor TgAccountViewerCustom.Destroy;
 begin
   FItems.Free;
   inherited Destroy;
 end;
 
-procedure TgAccountViewer.DoOnClick(AAccount: TgAccount);
+procedure TgAccountViewerCustom.DoOnClick(AAccount: TgAccount);
 begin
   if Assigned(OnClick) then
     OnClick(AAccount);
 end;
 
-procedure TgAccountViewer.DoOnDelete(AAccount: TgAccount);
+procedure TgAccountViewerCustom.DoOnDelete(AAccount: TgAccount);
 begin
   if Assigned(OnDelete) then
     OnDelete(AAccount);
 end;
 
-procedure TgAccountViewer.DrawItem(const AIndex: Integer);
+procedure TgAccountViewerCustom.DrawItem(const AIndex: Integer);
 begin
   DrawItemBorder(AIndex);
   DrawItemNick(AIndex);
@@ -81,7 +92,7 @@ begin
     DrawClose(AIndex);
 end;
 
-procedure TgAccountViewer.MouseDown(Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+procedure TgAccountViewerCustom.MouseDown(Button: TMouseButton; Shift: TShiftState; X, Y: Single);
 var
   I: Integer;
   FMousePos: TPointF;
@@ -99,13 +110,13 @@ begin
   end;
 end;
 
-procedure TgAccountViewer.MouseMove(Shift: TShiftState; X, Y: Single);
+procedure TgAccountViewerCustom.MouseMove(Shift: TShiftState; X, Y: Single);
 begin
   inherited;
   MousePosition(X, Y);
 end;
 
-procedure TgAccountViewer.Paint;
+procedure TgAccountViewerCustom.Paint;
 var
   I: Integer;
 begin
@@ -118,7 +129,7 @@ end;
 
 { TgAccountItemViewInfo }
 
-function TgAccountViewer.CalcRectAvatar(const AIndex: Integer): TRectF;
+function TgAccountViewerCustom.CalcRectAvatar(const AIndex: Integer): TRectF;
 begin
   Result := CalcRectBorder(AIndex);
   Result.Width := 64;
@@ -127,7 +138,7 @@ begin
   // Result.Left := Result.Width / 2 - Result.Offset(0, Result.Height / 3);
 end;
 
-function TgAccountViewer.CalcRectBorder(const AIndex: Integer): TRectF;
+function TgAccountViewerCustom.CalcRectBorder(const AIndex: Integer): TRectF;
 begin
   Result := ClipRect;
   Result.Width := ItemWidth;
@@ -135,8 +146,7 @@ begin
   Result.Offset((Result.Width + 5) * AIndex, 0);
 end;
 
-function TgAccountViewer.CalcRectClose(const AIndex: Integer): TRectF;
-
+function TgAccountViewerCustom.CalcRectClose(const AIndex: Integer): TRectF;
 var
   LBordRec: TRectF;
 begin
@@ -145,17 +155,15 @@ begin
   Result.Offset(LBordRec.Width - 32 - 2, -2);
 end;
 
-function TgAccountViewer.CalcRectNick(const AIndex: Integer): TRectF;
+function TgAccountViewerCustom.CalcRectNick(const AIndex: Integer): TRectF;
 begin
   Result := CalcRectBorder(AIndex);
   Result.Top := Result.Bottom - Result.Height / 3;
 end;
 
-procedure TgAccountViewer.DrawAvatar(const AIndex: Integer);
+procedure TgAccountViewerCustom.DrawAvatar(const AIndex: Integer);
 var
   LBorder: TRectF;
-var
-  LHeight, LWidth: Integer;
 begin
   if not FileExists(FItems[AIndex].Avatar) then
     Exit;
@@ -166,7 +174,7 @@ begin
   Canvas.FillEllipse(LBorder, 1);
 end;
 
-procedure TgAccountViewer.DrawItemBorder(const AIndex: Integer);
+procedure TgAccountViewerCustom.DrawItemBorder(const AIndex: Integer);
 var
   LBorder: TRectF;
 begin
@@ -176,7 +184,7 @@ begin
   Canvas.FillRect(LBorder, 4, 4, [TCorner.TopLeft .. TCorner.BottomRight], 1);
 end;
 
-procedure TgAccountViewer.DrawItemNick(const AIndex: Integer);
+procedure TgAccountViewerCustom.DrawItemNick(const AIndex: Integer);
 var
   LNickRect: TRectF;
 begin
@@ -188,7 +196,7 @@ begin
   Canvas.FillText(LNickRect, Items[AIndex].Nick, False, 1, [], TTextAlign.Center);
 end;
 
-procedure TgAccountViewer.DrawClose(const AIndex: Integer);
+procedure TgAccountViewerCustom.DrawClose(const AIndex: Integer);
 var
   LCloseRect: TRectF;
 begin
@@ -201,7 +209,7 @@ begin
   Canvas.FillText(LCloseRect, 'x', False, 1, [], TTextAlign.Center);
 end;
 
-procedure TgAccountViewer.MousePosition(X, Y: Single);
+procedure TgAccountViewerCustom.MousePosition(X, Y: Single);
 var
   I: Integer;
 begin

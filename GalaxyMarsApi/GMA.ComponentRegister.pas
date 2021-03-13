@@ -1,4 +1,4 @@
-unit Galaxy.ComponentRegister;
+unit GMA.ComponentRegister;
 
 interface
 
@@ -13,7 +13,7 @@ procedure Register;
 implementation
 
 uses
-  Galaxy.AccountsViewer;
+  GMA.Component.AccountsViewer;
 
 procedure Register;
 begin

@@ -53,7 +53,6 @@ var
 implementation
 
 uses
-  Galaxy.Web,
   View.Auth,
   View.Modules,
   View.About;
@@ -94,9 +93,5 @@ begin
   for i := Low(AViews) to High(AViews) do
     FViewManager.Store.AddView(AViews[i]);
 end;
-
-initialization
-
-TgWebRequest.classname;
 
 end.

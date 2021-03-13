@@ -4,7 +4,7 @@ interface
 
 uses
 {$REGION 'Galaxy'}
-  Galaxy.AccountsViewer,
+  GMA.Component.AccountsViewer,
 {$ENDREGION}
 {$REGION 'ViewNavigator'}
   ViewNavigator,
@@ -27,7 +27,7 @@ uses
   FMX.StdCtrls,
   FMX.Controls.Presentation,
   FMX.Objects,
-  FMX.Layouts, FMX.Edit;
+  FMX.Layouts, FMX.Edit, GSA.Client.Socket;
 
 type
 
@@ -41,12 +41,16 @@ type
     Button3: TButton;
     hsbAccounts: THorzScrollBox;
     Label1: TLabel;
+    procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
 
   private
     { Private declarations }
     FAccounts: TgAccountViewerCustom;
     FRecoverEdt: TEdit;
+
+  var
+    lCli: IGalaxyClientSocket;
     procedure SetupAccountsViewer(AAccounts: TgAccountViewerCustom);
 
   public
@@ -57,6 +61,9 @@ type
   end;
 
 implementation
+
+uses
+  GMA.Model.Account;
 
 {$R *.fmx}
 { TViewClientAuth }
@@ -73,6 +80,13 @@ destructor TViewClientAuth.Destroy;
 begin
   FreeAndNil(FAccounts);
   inherited Destroy;
+end;
+
+procedure TViewClientAuth.Button2Click(Sender: TObject);
+begin
+  lCli := TGalaxyClientSockeBuilder.Android;
+  lCli.Account := TgAccount.Create(59841643, 'g3hggyh1bd', 'g562071787');
+  lCli.Start;
 end;
 
 procedure TViewClientAuth.Button3Click(Sender: TObject);

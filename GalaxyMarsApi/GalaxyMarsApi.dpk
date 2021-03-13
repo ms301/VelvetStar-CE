@@ -32,10 +32,35 @@ requires
   fmx;
 
 contains
-  Galaxy.AccountsViewer in 'Components\Galaxy.AccountsViewer.pas',
-  Galaxy.ComponentRegister in 'Components\Galaxy.ComponentRegister.pas',
-  Galaxy.Model.Account in 'Model\Galaxy.Model.Account.pas',
-  GMA.Tools.NickGenerator in 'GMA.Tools.NickGenerator.pas',
-  Galaxy.Model.Accounts in 'Model\Galaxy.Model.Accounts.pas';
+  GMA.Model.View in 'GMA.Model.View.pas',
+  GMA.Model.ViewData.Animation in 'GMA.Model.ViewData.Animation.pas',
+  GMA.Model.ViewData.Data in 'GMA.Model.ViewData.Data.pas',
+  GMA.Model.ViewData.Image.Cut in 'GMA.Model.ViewData.Image.Cut.pas',
+  GMA.Model.ViewData.Image in 'GMA.Model.ViewData.Image.pas',
+  GMA.Component.AccountsViewer in 'GMA.Component.AccountsViewer.pas',
+  GMA.ComponentRegister in 'GMA.ComponentRegister.pas',
+  GMA.Model.Account in 'GMA.Model.Account.pas',
+  GMA.Model.Accounts in 'GMA.Model.Accounts.pas',
+  GMA.Model.Message in 'GMA.Model.Message.pas',
+  GMA.Model.Teleport in 'GMA.Model.Teleport.pas',
+  GMA.Core.Tools.NickGenerator in 'GMA.Core.Tools.NickGenerator.pas',
+  GMA.Types.Person in 'GMA.Types.Person.pas',
+  GMA.Core.Tools in 'GMA.Core.Tools.pas',
+  GMA.Model.ActionItem in 'GMA.Model.ActionItem.pas',
+  GMA.Model.Addons in 'GMA.Model.Addons.pas',
+  GMA.Model.AddonTags in 'GMA.Model.AddonTags.pas',
+  GMA.Model.ChanelInfo in 'GMA.Model.ChanelInfo.pas',
+  GMA.Model.Emotion in 'GMA.Model.Emotion.pas',
+  GMA.Model.Event in 'GMA.Model.Event.pas',
+  GMA.Model.gObject.MoveObjInfo in 'GMA.Model.gObject.MoveObjInfo.pas',
+  GMA.Model.gObject in 'GMA.Model.gObject.pas',
+  GMA.Model.gObject.PositionInfo in 'GMA.Model.gObject.PositionInfo.pas',
+  GMA.Model.gObject.Status in 'GMA.Model.gObject.Status.pas',
+  GMA.Model.gObject.StatusSet in 'GMA.Model.gObject.StatusSet.pas',
+  GMA.Model.Gradient in 'GMA.Model.Gradient.pas',
+  GMA.Model.MenuItem in 'GMA.Model.MenuItem.pas',
+  GMA.Intf.Weather in 'GMA.Intf.Weather.pas',
+  GMA.Model.HLink in 'GMA.Model.HLink.pas',
+  GMA.Core.Tools.HLinks in 'GMA.Core.Tools.HLinks.pas';
 
 end.
