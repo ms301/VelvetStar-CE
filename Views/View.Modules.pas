@@ -14,7 +14,7 @@ uses
 type
 
   [vnName('ViewModules')]
-  [vnLifeCycle(TvnLifeCycle.OnShowHide)]
+  [vnLifeCycle(TvnLifeCycle.OnCreateDestroy)]
   TViewModules = class(TFrame)
     ListBox1: TListBox;
     GroupBox1: TGroupBox;

@@ -1,0 +1,246 @@
+object Form7: TForm7
+  Left = 0
+  Top = 0
+  Caption = 'Form7'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Top
+    TabOrder = 0
+    Size.Width = 640.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    object EditButton1: TEditButton
+      CanFocus = False
+      Cursor = crArrow
+      Size.Width = 52.000000000000000000
+      Size.Height = 21.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Go'
+      OnClick = EditButton1Click
+    end
+  end
+  object GroupBox1: TGroupBox
+    Align = Left
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 20.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Position.Y = 25.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 455.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'GroupBox1'
+    TabOrder = 1
+    object Layout1: TLayout
+      Align = Top
+      Margins.Top = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 207.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object edAction: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        Text = 'whois'
+        Position.Y = 17.000000000000000000
+        Size.Width = 207.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label1: TLabel
+        Align = Top
+        Size.Width = 207.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Action'
+        TabOrder = 1
+      end
+    end
+    object Layout2: TLayout
+      Align = Top
+      Margins.Top = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 135.000000000000000000
+      Size.Width = 207.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object edMyId: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        Text = '60334171'
+        Position.Y = 17.000000000000000000
+        Size.Width = 207.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label2: TLabel
+        Align = Top
+        Size.Width = 207.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'My ID'
+        TabOrder = 1
+      end
+    end
+    object Layout3: TLayout
+      Align = Top
+      Margins.Top = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 190.000000000000000000
+      Size.Width = 207.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object edMyPassword: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        Text = 'j7ijwj9x4j'
+        Position.Y = 17.000000000000000000
+        Size.Width = 207.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label3: TLabel
+        Align = Top
+        Size.Width = 207.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'My Password'
+        TabOrder = 1
+      end
+    end
+    object Layout4: TLayout
+      Align = Top
+      Margins.Top = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 245.000000000000000000
+      Size.Width = 207.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object edCurrentUser: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        Text = '60334171'
+        Position.Y = 17.000000000000000000
+        Size.Width = 207.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label4: TLabel
+        Align = Top
+        Size.Width = 207.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Current User ID'
+        TabOrder = 1
+      end
+    end
+    object Button1: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 304.000000000000000000
+      TabOrder = 5
+      Text = 'Apply'
+      OnClick = Button1Click
+    end
+    object Layout5: TLayout
+      Align = Top
+      Margins.Top = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 25.000000000000000000
+      Size.Width = 207.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object edServ: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        Text = 'https://galaxy.mobstudio.ru/services/?'
+        Position.Y = 17.000000000000000000
+        Size.Width = 207.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label5: TLabel
+        Align = Top
+        Size.Width = 207.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Server'
+        TabOrder = 1
+      end
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 423.000000000000000000
+    Size.Height = 455.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 2
+    TabPosition = PlatformDefault
+    Sizes = (
+      423s
+      429s
+      423s
+      429s)
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 57.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Source'
+      object Memo1: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        TextSettings.WordWrap = True
+        Align = Client
+        Size.Width = 423.000000000000000000
+        Size.Height = 429.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 419.000000000000000000
+        Viewport.Height = 425.000000000000000000
+      end
+    end
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 46.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'View'
+      object WebBrowser1: TWebBrowser
+        Align = Client
+        Size.Width = 423.000000000000000000
+        Size.Height = 429.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+end

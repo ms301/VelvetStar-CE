@@ -6520,7 +6520,7 @@ object ViewHost: TViewHost
         Text = #1042#1093#1086#1076
         OnClick = DoButtonNavigateClicked
       end
-      object btnViewClientChat: TSpeedButton
+      object btnViewClient: TSpeedButton
         StaysPressed = True
         Align = Left
         GroupName = 'General-Menu-Tabs'

@@ -11,16 +11,17 @@ uses
   GMA.Model.Account,
   GMA.Model.Accounts,
 {$ENDREGION}
+  VS.Modules.RecoverLoader,
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, FMX.Effects, FMX.Objects, FMX.Edit,
   System.Rtti, FMX.Grid.Style, FMX.Grid, FMX.ScrollBox,
-  System.Generics.Collections;
+  System.Generics.Collections, GSA.Client.Socket;
 
 type
 
   [vnName('ViewModulesUserRegistrator')]
-  [vnLifeCycle(TvnLifeCycle.OnShowHide)]
+  [vnLifeCycle(TvnLifeCycle.OnCreateDestroy)]
   TViewModulesUserRegistrator = class(TFrame)
     Label1: TLabel;
     Layout1: TLayout;
@@ -57,8 +58,15 @@ type
     Layout3: TLayout;
     btnRegister: TButton;
     StringColumn4: TStringColumn;
+    Button1: TButton;
+    Layout4: TLayout;
+    Layout5: TLayout;
+    Switch2: TSwitch;
+    Label10: TLabel;
+    Label11: TLabel;
     procedure btnRegisterClick(Sender: TObject);
     procedure btnSavePersonsClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure Grid1GetValue(Sender: TObject; const ACol, ARow: Integer; var Value: TValue);
     procedure Grid1Resized(Sender: TObject);
@@ -66,6 +74,8 @@ type
   private
     { Private declarations }
     FUserList: TgAccounts;
+    lCli: IGalaxyClientSocket;
+    FRecoverLoaders: TList<IvsRecoverLoader>;
   public
     { Public declarations }
     procedure UpdateData;
@@ -79,18 +89,21 @@ implementation
 uses
   FluentUI.Helpers.TControl,
   GSA.Web,
-  GMA.Core.Tools.NickGenerator;
+  GMA.Core.Tools.NickGenerator,
+  VS.Log;
 {$R *.fmx}
 
 constructor TViewModulesUserRegistrator.Create(AOwner: TComponent);
 begin
   inherited;
   FUserList := TgAccounts.Create;
+  FRecoverLoaders := TList<IvsRecoverLoader>.Create;
   UpdateData;
 end;
 
 destructor TViewModulesUserRegistrator.Destroy;
 begin
+  FRecoverLoaders.Free;
   FUserList.Free;
   inherited;
 end;
@@ -108,24 +121,47 @@ var
   lNick: string;
   lHead, lBody: Integer;
   lIsMan: Boolean;
+  lParseRecover: Boolean;
   lThread: TThread;
 begin
   lNick := edtNick.TextOrPromt;
   lHead := edtHead.TextOrPromt.ToInteger;
   lBody := edtBody.TextOrPromt.ToInteger;
   lIsMan := not Switch1.IsChecked;
+  lParseRecover := Switch2.IsChecked;
   lThread := TThread.CreateAnonymousThread(
     procedure
     var
       lAccout: TgAccount;
+      lTmpRecLoader: IvsRecoverLoader;
     begin
       lAccout := TgWebRequest.RegUser(lNick, lHead, lBody, lIsMan);
-      TThread.Synchronize(nil,
-        procedure
-        begin
-          FUserList.Add(lAccout);
-          UpdateData;
-        end);
+      if lParseRecover then
+      begin
+        lTmpRecLoader := TvsRecoverLoader.Create(lAccout,
+          procedure(AAccount: TgAccount)
+          begin
+            lAccout := AAccount;
+            TThread.Synchronize(nil,
+              procedure
+              begin
+                FUserList.Add(lAccout);
+                UpdateData;
+              end);
+          end,
+          procedure(AError: string)
+          begin
+          end);
+
+        FRecoverLoaders.Add(lTmpRecLoader);
+      end
+      else
+        TThread.Synchronize(nil,
+          procedure
+          begin
+            FUserList.Add(lAccout);
+            UpdateData;
+          end);
     end);
   lThread.FreeOnTerminate := True;
   lThread.Start;
@@ -145,6 +181,18 @@ begin
   finally
     LSaveDialog.Free;
   end;
+end;
+
+procedure TViewModulesUserRegistrator.Button1Click(Sender: TObject);
+begin
+  lCli := TGalaxyClientSockeBuilder.Android;
+
+  lCli.Account := FUserList[Grid1.Row];
+  lCli.OnLogSocketMsg := procedure(ATime: TDateTime; ATag: string; AMsg: string)
+    begin
+      TgLog.SocketMsg(ATag, AMsg);
+    end;
+  lCli.Start;
 end;
 
 procedure TViewModulesUserRegistrator.FrameResize(Sender: TObject);

@@ -1,0 +1,30 @@
+object ViewClient: TViewClient
+  Align = Client
+  Size.Width = 548.000000000000000000
+  Size.Height = 380.000000000000000000
+  Size.PlatformDefault = False
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Top
+    TabOrder = 0
+    Text = 'https://galaxy.mobstudio.ru/services/?a=whois'
+    Size.Width = 548.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    object EditButton1: TEditButton
+      CanFocus = False
+      Cursor = crArrow
+      Size.Width = 52.000000000000000000
+      Size.Height = 21.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      OnClick = EditButton1Click
+    end
+  end
+  object WebBrowser1: TWebBrowser
+    Align = Client
+    Size.Width = 548.000000000000000000
+    Size.Height = 355.000000000000000000
+    Size.PlatformDefault = False
+  end
+end

@@ -14,7 +14,7 @@ uses
 type
 
   [vnName('ViewLogs')]
-  [vnLifeCycle(TvnLifeCycle.OnShowHide)]
+  [vnLifeCycle(TvnLifeCycle.OnCreateDestroy)]
   TViewLog = class(TFrame)
     Layout1: TLayout;
     Label1: TLabel;

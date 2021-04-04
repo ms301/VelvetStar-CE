@@ -18,6 +18,9 @@
         <Projects Include="VelvetStarCE.dproj">
             <Dependencies>GalaxySunApi\GalaxySunApi.dproj;FluentUI\FluentUI.dproj;GalaxyMarsApi\GalaxyMarsApi.dproj</Dependencies>
         </Projects>
+        <Projects Include="GalaBrowser.dproj">
+            <Dependencies>GalaxySunApi\GalaxySunApi.dproj</Dependencies>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
     <Target Name="VelvetStarCE:Make" DependsOnTargets="GalaxySunApi:Make;FluentUI:Make;GalaxyMarsApi:Make">
         <MSBuild Projects="VelvetStarCE.dproj" Targets="Make"/>
     </Target>
+    <Target Name="GalaBrowser" DependsOnTargets="GalaxySunApi">
+        <MSBuild Projects="GalaBrowser.dproj"/>
+    </Target>
+    <Target Name="GalaBrowser:Clean" DependsOnTargets="GalaxySunApi:Clean">
+        <MSBuild Projects="GalaBrowser.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GalaBrowser:Make" DependsOnTargets="GalaxySunApi:Make">
+        <MSBuild Projects="GalaBrowser.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="FluentUI;GalaxyMarsApi;GalaxySunApi;GalaxySunTest;VelvetStarCE"/>
+        <CallTarget Targets="FluentUI;GalaxyMarsApi;GalaxySunApi;GalaxySunTest;VelvetStarCE;GalaBrowser"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FluentUI:Clean;GalaxyMarsApi:Clean;GalaxySunApi:Clean;GalaxySunTest:Clean;VelvetStarCE:Clean"/>
+        <CallTarget Targets="FluentUI:Clean;GalaxyMarsApi:Clean;GalaxySunApi:Clean;GalaxySunTest:Clean;VelvetStarCE:Clean;GalaBrowser:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FluentUI:Make;GalaxyMarsApi:Make;GalaxySunApi:Make;GalaxySunTest:Make;VelvetStarCE:Make"/>
+        <CallTarget Targets="FluentUI:Make;GalaxyMarsApi:Make;GalaxySunApi:Make;GalaxySunTest:Make;VelvetStarCE:Make;GalaBrowser:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

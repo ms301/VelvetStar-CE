@@ -13,7 +13,10 @@ uses
   View.About in 'Views\View.About.pas' {ViewAbout: TFrame},
   FluentUI.Helpers.TControl in 'FluentUI\FluentUI.Helpers.TControl.pas',
   View.Log in 'Views\View.Log.pas' {ViewLog: TFrame},
-  View.Log.Socket in 'Views\View.Log.Socket.pas' {ViewLogSocket: TFrame};
+  View.Log.Socket in 'Views\View.Log.Socket.pas' {ViewLogSocket: TFrame},
+  VS.Log in 'Source\VS.Log.pas',
+  VS.Modules.RecoverLoader in 'Source\VS.Modules.RecoverLoader.pas',
+  View.Client.Browser in 'Views\View.Client.Browser.pas' {ViewClient: TFrame};
 
 {$R *.res}
 

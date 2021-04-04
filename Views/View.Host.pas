@@ -30,7 +30,7 @@ type
     StyleBook2: TStyleBook;
     ToolBar1: TToolBar;
     btnViewClientAuth: TSpeedButton;
-    btnViewClientChat: TSpeedButton;
+    btnViewClient: TSpeedButton;
     btnViewModules: TSpeedButton;
     btnViewAbout: TSpeedButton;
     fgLinkedLabel1: TfgLinkedLabel;
@@ -55,6 +55,7 @@ implementation
 
 uses
   View.Auth,
+  View.Client.Browser,
   View.Modules,
   View.Log,
   View.About;
@@ -75,6 +76,7 @@ begin
   FViewManager.Parent := lytContent;
   RegisterViews([ //
     TViewClientAuth //
+    , TViewClient //
     , TViewModules //
     , TViewLog //
     , TViewAbout //

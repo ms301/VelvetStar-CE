@@ -32,7 +32,7 @@ uses
 type
 
   [vnName('ViewClientAuth')]
-  [vnLifeCycle(TvnLifeCycle.OnShowHide)]
+  [vnLifeCycle(TvnLifeCycle.OnCreateDestroy)]
   TViewClientAuth = class(TFrame)
     Image1: TImage;
     Layout3: TLayout;
@@ -63,6 +63,7 @@ type
 implementation
 
 uses
+  VS.Log,
   GMA.Model.Account;
 
 {$R *.fmx}
@@ -85,7 +86,12 @@ end;
 procedure TViewClientAuth.Button2Click(Sender: TObject);
 begin
   lCli := TGalaxyClientSockeBuilder.Android;
+
   lCli.Account := TgAccount.Create(59841643, 'g3hggyh1bd', 'g562071787');
+  lCli.OnLogSocketMsg := procedure(ATime: TDateTime; ATag: string; AMsg: string)
+    begin
+      TgLog.SocketMsg(ATag, AMsg);
+    end;
   lCli.Start;
 end;
 
